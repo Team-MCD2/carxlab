@@ -272,8 +272,8 @@ const Home = () => {
             {/* Protocole lab — section SOMBRE animée */}
             <LabProtocol />
 
-            {/* CTA — section CLAIRE */}
-            <section className="section-padding section-light-blend relative flex items-center justify-center overflow-hidden pb-28 md:pb-36">
+            {/* CTA — section SOMBRE */}
+            <section className="section-padding section-dark relative flex items-center justify-center overflow-hidden pb-28 md:pb-36">
                 <div className="main-container text-center relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -282,10 +282,10 @@ const Home = () => {
                         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                         className="flex flex-col items-center"
                     >
-                        <h2 className="text-4xl md:text-7xl font-black mb-12 md:mb-16 uppercase leading-[1.05] tracking-tight text-black">
+                        <h2 className="text-4xl md:text-7xl font-black mb-12 md:mb-16 uppercase leading-[1.05] tracking-tight text-white">
                             VOTRE <br /><span className="text-accent-gold">FUTUR</span> EST ICI
                         </h2>
-                        <p className="text-lg md:text-xl text-black/50 mb-16 md:mb-20 max-w-2xl mx-auto font-light leading-[1.85]">
+                        <p className="text-lg md:text-xl text-white/55 mb-16 md:mb-20 max-w-2xl mx-auto font-light leading-[1.85]">
                             Vendez votre véhicule au juste prix ou trouvez la perle rare parmi notre stock ultra-limité.
                         </p>
                         <motion.div
@@ -308,7 +308,7 @@ const Home = () => {
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="gold-button-outline w-full px-12 py-5 text-xs !border-black/20 !text-black hover:!bg-black hover:!text-white"
+                                    className="gold-button-outline w-full px-12 py-5 text-xs"
                                 >
                                     CATALOGUE LIVE
                                 </motion.button>

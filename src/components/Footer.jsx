@@ -41,7 +41,7 @@ const Footer = () => {
         <footer className="relative mt-20 md:mt-32 overflow-hidden">
             {/* Transition douce depuis la section précédente */}
             <div
-                className="h-20 md:h-32 w-full bg-gradient-to-b from-[#ebebeb] via-[#4a4a4a] to-[var(--bg-card)] pointer-events-none"
+                className="h-12 md:h-16 w-full bg-black pointer-events-none"
                 aria-hidden
             />
 
@@ -145,7 +145,7 @@ const Footer = () => {
                                                     href={card.href}
                                                     target={card.external ? '_blank' : undefined}
                                                     rel={card.external ? 'noopener noreferrer' : undefined}
-                                                    className="group flex items-center gap-6 md:gap-8 w-full p-8 md:p-10 rounded-2xl bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.07] hover:border-accent-gold/20 transition-all duration-300"
+                                                    className="group flex items-center gap-6 md:gap-8 w-full p-8 md:p-10 rounded-2xl bg-black border-2 border-white/15 hover:border-accent-gold transition-all duration-300"
                                                 >
                                                     {inner}
                                                 </a>

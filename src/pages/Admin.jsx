@@ -52,7 +52,7 @@ const Login = ({ onLogin }) => {
                 transition={{ duration: 0.8 }}
                 className={`w-full max-w-md mx-6 md:mx-8 ${shake ? 'animate-shake' : ''}`}
             >
-                <div className="glass-panel border border-white/[0.06] p-10 md:p-14 lg:p-16">
+                <div className="form-panel">
                     <div className="flex-center-col mb-12">
                         <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 border border-accent-gold/20 flex-center mb-8">
                             <Lock size={26} className="text-accent-gold" />
@@ -212,8 +212,12 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
         }
     };
 
-    const inputCls = 'w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:border-accent-gold outline-none text-white/80 text-sm transition-all';
-    const labelCls = 'block text-[10px] tracking-[0.4em] uppercase font-bold text-accent-gold mb-2';
+    const Field = ({ label, children }) => (
+        <div className="form-field">
+            <label className="form-label">{label}</label>
+            {children}
+        </div>
+    );
 
     if (success) {
         return (
@@ -230,15 +234,14 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
     return (
         <form onSubmit={handleSubmit} className="space-y-20">
             <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
-                <div className="card-soft p-8 md:p-10 relative overflow-hidden group">
-                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-accent-gold/30 via-accent-gold/10 to-transparent" />
-                    <div className="flex items-center gap-4 mb-8">
-                        <div className="w-10 h-10 rounded-xl bg-accent-gold/10 border border-accent-gold/20 flex-center">
-                            <Car size={18} className="text-accent-gold" />
+                <div className="admin-panel">
+                    <div className="flex items-center gap-4 mb-10 pb-8 border-b-2 border-white/10">
+                        <div className="w-12 h-12 rounded-full bg-accent-gold flex-center text-black">
+                            <Car size={20} />
                         </div>
                         <div>
-                            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white">Extérieur</h3>
-                            <p className="text-[9px] text-accent-gold/60 uppercase font-black tracking-widest mt-1">Détourage Auto ✨</p>
+                            <h3 className="text-sm font-black uppercase tracking-[0.15em] text-white">Extérieur</h3>
+                            <p className="text-[10px] text-accent-gold uppercase font-black tracking-widest mt-1">Détourage auto</p>
                         </div>
                     </div>
 
@@ -270,7 +273,7 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
                             type="button"
                             onClick={() => extInputRef.current?.click()}
                             disabled={processing}
-                            className={`aspect-[4/3] rounded-2xl border-2 border-dashed border-white/5 hover:border-accent-gold/30 flex-center-col gap-3 transition-all bg-white/[0.01] hover:bg-white/[0.03] ${processing ? 'opacity-50 cursor-wait' : ''}`}
+                            className={`aspect-[4/3] rounded-xl border-2 border-dashed border-white/20 hover:border-accent-gold flex-center-col gap-3 transition-all bg-black hover:bg-white/[0.03] ${processing ? 'opacity-50 cursor-wait' : ''}`}
                         >
                             {processing ? (
                                 <div className="w-6 h-6 border-2 border-accent-gold/20 border-t-accent-gold rounded-full animate-spin" />
@@ -282,15 +285,14 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
                     </div>
                 </div>
 
-                <div className="card-soft p-8 md:p-10 relative overflow-hidden group">
-                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-white/15 via-white/5 to-transparent" />
-                    <div className="flex items-center gap-4 mb-8">
-                        <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex-center">
-                            <div className="w-4 h-4 border-2 border-white/20 rounded-sm" />
+                <div className="admin-panel">
+                    <div className="flex items-center gap-4 mb-10 pb-8 border-b-2 border-white/10">
+                        <div className="w-12 h-12 rounded-full border-2 border-white flex-center">
+                            <div className="w-4 h-4 border-2 border-white rounded-sm" />
                         </div>
                         <div>
-                            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white">Intérieur</h3>
-                            <p className="text-[9px] text-white/30 uppercase font-black tracking-widest mt-1">Format Original</p>
+                            <h3 className="text-sm font-black uppercase tracking-[0.15em] text-white">Intérieur</h3>
+                            <p className="text-[10px] text-white/50 uppercase font-black tracking-widest mt-1">Format original</p>
                         </div>
                     </div>
 
@@ -316,7 +318,7 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
                         <button
                             type="button"
                             onClick={() => intInputRef.current?.click()}
-                            className="aspect-[4/3] rounded-2xl border-2 border-dashed border-white/5 hover:border-accent-gold/30 flex-center-col gap-3 transition-all bg-white/[0.01] hover:bg-white/[0.03]"
+                            className="aspect-[4/3] rounded-xl border-2 border-dashed border-white/20 hover:border-accent-gold flex-center-col gap-3 transition-all bg-black hover:bg-white/[0.03]"
                         >
                             <Plus size={24} className="text-accent-gold/30 group-hover:text-accent-gold/60" />
                             <span className="text-[9px] uppercase font-black text-white/20 tracking-[0.2em]">Ajouter</span>
@@ -325,58 +327,51 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
                 </div>
             </div>
 
-            <div className="glass-panel p-10 md:p-14 lg:p-16 relative bg-white/[0.01]">
-                <div className="section-label mb-14 max-w-xs">
-                    <h2 className="text-lg font-black uppercase tracking-[0.3em]">Spécifications</h2>
-                </div>
+            <div className="form-panel">
+                <h2 className="text-lg font-black uppercase tracking-[0.2em] text-white mb-12 pb-6 border-b-2 border-white/10">
+                    Spécifications
+                </h2>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
-                    <div className="space-y-3">
-                        <label className={labelCls}>Constructeur</label>
-                        <input type="text" value={form.marque} onChange={set('marque')} list="marques-list" placeholder="Ex: Porsche" className={inputCls} />
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+                    <Field label="Constructeur">
+                        <input type="text" value={form.marque} onChange={set('marque')} list="marques-list" placeholder="Ex: Porsche" className="form-input" />
                         <datalist id="marques-list">{MARQUES.map((m) => <option key={m} value={m} />)}</datalist>
-                    </div>
-                    <div className="space-y-3">
-                        <label className={labelCls}>Modèle Précis</label>
-                        <input type="text" value={form.modele} onChange={set('modele')} placeholder="Ex: 911 GT3 RS" className={inputCls} />
-                    </div>
-                    <div className="space-y-3">
-                        <label className={labelCls}>Prix de Vente (€)</label>
-                        <input type="number" value={form.prix} onChange={set('prix')} required placeholder="Ex: 245000" className={`${inputCls} !border-accent-gold/20 !bg-accent-gold/5 text-accent-gold font-black`} />
-                    </div>
-                    <div className="space-y-3">
-                        <label className={labelCls}>Année</label>
-                        <input type="number" value={form.annee} onChange={set('annee')} placeholder="2024" className={inputCls} />
-                    </div>
-                    <div className="space-y-3">
-                        <label className={labelCls}>Kilométrage</label>
-                        <input type="number" value={form.km} onChange={set('km')} placeholder="500" className={inputCls} />
-                    </div>
-                    <div className="space-y-3">
-                        <label className={labelCls}>Teinte Extérieure</label>
-                        <input type="text" value={form.couleur} onChange={set('couleur')} placeholder="Gris Craie" className={inputCls} />
-                    </div>
-                    <div className="space-y-3">
-                        <label className={labelCls}>Motorisation</label>
-                        <input type="text" value={form.carburant} onChange={set('carburant')} list="carburants-list" placeholder="Essence" className={inputCls} />
+                    </Field>
+                    <Field label="Modèle précis">
+                        <input type="text" value={form.modele} onChange={set('modele')} placeholder="Ex: 911 GT3 RS" className="form-input" />
+                    </Field>
+                    <Field label="Prix de vente (€)">
+                        <input type="number" value={form.prix} onChange={set('prix')} required placeholder="Ex: 245000" className="form-input !border-accent-gold !text-accent-gold font-bold" />
+                    </Field>
+                    <Field label="Année">
+                        <input type="number" value={form.annee} onChange={set('annee')} placeholder="2024" className="form-input" />
+                    </Field>
+                    <Field label="Kilométrage">
+                        <input type="number" value={form.km} onChange={set('km')} placeholder="50 000" className="form-input" />
+                    </Field>
+                    <Field label="Teinte extérieure">
+                        <input type="text" value={form.couleur} onChange={set('couleur')} placeholder="Gris craie" className="form-input" />
+                    </Field>
+                    <Field label="Motorisation">
+                        <input type="text" value={form.carburant} onChange={set('carburant')} list="carburants-list" placeholder="Essence" className="form-input" />
                         <datalist id="carburants-list">{CARBURANTS.map((c) => <option key={c} value={c} />)}</datalist>
-                    </div>
-                    <div className="space-y-3">
-                        <label className={labelCls}>Transmission</label>
-                        <input type="text" value={form.transmission} onChange={set('transmission')} list="transmissions-list" placeholder="PDK" className={inputCls} />
+                    </Field>
+                    <Field label="Transmission">
+                        <input type="text" value={form.transmission} onChange={set('transmission')} list="transmissions-list" placeholder="PDK" className="form-input" />
                         <datalist id="transmissions-list">{TRANSMISSIONS.map((t) => <option key={t} value={t} />)}</datalist>
-                    </div>
+                    </Field>
                 </div>
 
-                <div className="mt-16 pt-16 border-t border-white/5 space-y-4">
-                    <label className={labelCls}>Présentation & Options</label>
-                    <textarea
-                        rows={6}
-                        value={form.description}
-                        onChange={set('description')}
-                        placeholder="Détaillez ici les équipements, l'historique et l'état général du véhicule..."
-                        className={`${inputCls} resize-none p-6 leading-relaxed`}
-                    />
+                <div className="mt-14 pt-14 border-t-2 border-white/10">
+                    <Field label="Présentation & options">
+                        <textarea
+                            rows={6}
+                            value={form.description}
+                            onChange={set('description')}
+                            placeholder="Équipements, historique, état général du véhicule..."
+                            className="form-input resize-none leading-relaxed min-h-[160px]"
+                        />
+                    </Field>
                 </div>
             </div>
 
@@ -513,7 +508,7 @@ const AdminDashboard = ({ onLogout }) => {
                             exit={{ opacity: 0, height: 0 }}
                             className="mb-20 overflow-hidden"
                         >
-                            <div className="glass-panel border border-accent-gold/10 p-10 md:p-14 lg:p-16">
+                            <div className="form-panel border-accent-gold/30">
                                 <div className="section-label mb-12 max-w-sm">
                                     <h2 className="text-base font-black uppercase tracking-[0.25em]">{editAnnonce ? "Modifier l'Annonce" : "Nouvelle Annonce"}</h2>
                                 </div>
@@ -553,9 +548,9 @@ const AdminDashboard = ({ onLogout }) => {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="group card-soft overflow-hidden transition-all flex flex-col"
+                                    className="group admin-listing-card"
                                 >
-                                    <div className="relative aspect-[16/9] md:aspect-[2/1] overflow-hidden bg-white/[0.02]">
+                                    <div className="relative aspect-[16/9] md:aspect-[2/1] overflow-hidden bg-black">
                                         <SafeImage
                                             src={annonce.url}
                                             alt={`${annonce.marque} ${annonce.modele}`}
@@ -575,61 +570,59 @@ const AdminDashboard = ({ onLogout }) => {
                                         </div>
                                     </div>
 
-                                    <div className="p-10 md:p-12 lg:p-14 flex flex-col flex-1 min-h-[280px]">
-                                        <h3 className="font-black text-2xl md:text-3xl uppercase tracking-tight mb-6 pl-0.5">
+                                    <div className="admin-listing-body">
+                                        <h3 className="font-black text-2xl md:text-3xl uppercase tracking-tight mb-6 text-white">
                                             {annonce.marque}{' '}
-                                            <span className="text-white/55 font-semibold">{annonce.modele}</span>
+                                            <span className="text-white/60 font-semibold">{annonce.modele}</span>
                                         </h3>
-                                        <div className="flex flex-wrap gap-3 mb-8 pl-0.5">
+                                        <div className="flex flex-wrap gap-2 mb-8">
                                             {[annonce.annee, annonce.km ? `${Number(annonce.km).toLocaleString('fr-FR')} km` : null, annonce.carburant]
                                                 .filter(Boolean).map((v, idx) => (
-                                                    <span key={idx} className="text-[11px] tracking-widest uppercase text-white/50 bg-white/[0.06] px-3 py-2 rounded-lg border border-white/[0.06]">
-                                                        {v}
-                                                    </span>
+                                                    <span key={idx} className="admin-tag">{v}</span>
                                                 ))}
                                         </div>
-                                        {annonce.description ? (
-                                            <p className="text-white/60 text-sm md:text-base leading-[1.9] font-light flex-1 line-clamp-4 mb-8 pl-0.5">
+                                        {annonce.description && (
+                                            <p className="text-white/70 text-sm md:text-base leading-[1.9] font-light line-clamp-4">
                                                 {annonce.description}
                                             </p>
-                                        ) : (
-                                            <div className="flex-1 min-h-[4rem]" />
                                         )}
-
-                                        <div className="mt-auto pt-10 border-t border-white/[0.08]">
-                                            {deleteId === annonce.id ? (
-                                                <div className="flex gap-2">
-                                                    <button
-                                                        onClick={() => handleDelete(annonce)}
-                                                        className="flex-1 py-2.5 bg-red-500 hover:bg-red-600 text-white text-[10px] font-black uppercase tracking-widest rounded-lg transition-all"
-                                                    >
-                                                        Confirmer
-                                                    </button>
-                                                    <button
-                                                        onClick={() => setDeleteId(null)}
-                                                        className="flex-1 py-2.5 bg-white/5 hover:bg-white/10 text-white/40 text-[10px] font-black uppercase tracking-widest rounded-lg transition-all"
-                                                    >
-                                                        Annuler
-                                                    </button>
-                                                </div>
-                                            ) : (
-                                                <div className="flex gap-4">
-                                                    <button
-                                                        onClick={() => { setEditAnnonce(annonce); setShowForm(true); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                                                        className="flex-1 py-5 bg-white/[0.06] hover:bg-white/10 text-white/70 text-xs font-black uppercase tracking-widest rounded-xl transition-all border border-white/[0.08] flex items-center justify-center gap-3"
-                                                    >
-                                                        <Pencil size={14} /> Modifier
-                                                    </button>
-                                                    <button
-                                                        onClick={() => setDeleteId(annonce.id)}
-                                                        className="px-8 py-5 bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-black uppercase tracking-widest rounded-xl transition-all border border-red-500/15"
-                                                    >
-                                                        <Trash2 size={14} />
-                                                    </button>
-                                                </div>
-                                            )}
-                                        </div>
                                     </div>
+
+                                    {deleteId === annonce.id ? (
+                                        <div className="admin-actions">
+                                            <button
+                                                type="button"
+                                                onClick={() => handleDelete(annonce)}
+                                                className="admin-btn admin-btn-delete col-span-2 !bg-red-500 !text-white !border-red-500"
+                                            >
+                                                Confirmer la suppression
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => setDeleteId(null)}
+                                                className="admin-btn admin-btn-edit col-span-2"
+                                            >
+                                                Annuler
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <div className="admin-actions">
+                                            <button
+                                                type="button"
+                                                onClick={() => { setEditAnnonce(annonce); setShowForm(true); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                                                className="admin-btn admin-btn-edit"
+                                            >
+                                                <Pencil size={14} /> Modifier
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => setDeleteId(annonce.id)}
+                                                className="admin-btn admin-btn-delete"
+                                            >
+                                                <Trash2 size={14} /> Supprimer
+                                            </button>
+                                        </div>
+                                    )}
                                 </motion.div>
                             ))}
                         </div>
