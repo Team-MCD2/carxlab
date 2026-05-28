@@ -8,7 +8,7 @@ const ReviewCard = ({ name, date, text, rating = 5 }) => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="card-light p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] flex flex-col gap-8 relative group h-full"
+        className="card-light p-10 md:p-12 lg:p-14 rounded-[2rem] md:rounded-[2.5rem] flex flex-col gap-10 relative group h-full min-h-[320px]"
     >
         <div className="absolute -top-4 -left-4 w-14 h-14 bg-accent-gold rounded-2xl flex items-center justify-center text-black shadow-lg shadow-accent-gold/15">
             <Quote size={22} fill="currentColor" />
@@ -57,28 +57,28 @@ const Reviews = () => {
     ];
 
     return (
-        <section className="section-padding section-light relative overflow-hidden">
+        <section className="section-padding section-dark relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.04)_0%,transparent_70%)] pointer-events-none" />
 
             <div className="main-container relative z-10">
                 <div className="text-center mb-20 md:mb-24">
-                    <div className="section-label section-label-light mb-8">
+                    <div className="section-label mb-8">
                         <span className="text-accent-gold tracking-[0.35em] font-black text-xs uppercase">Témoignages</span>
                     </div>
-                    <h2 className="text-4xl md:text-7xl font-black text-black uppercase tracking-tight leading-[1.15] mb-12">
+                    <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tight leading-[1.15] mb-12">
                         L'AVIS DE NOS <br /><span className="text-accent-gold">PARTENAIRES</span>
                     </h2>
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10">
                         <div className="flex items-center gap-3">
                             <Star className="text-accent-gold fill-accent-gold" size={24} />
-                            <span className="text-black font-black text-3xl">4.9/5</span>
+                            <span className="text-white font-black text-3xl">4.9/5</span>
                         </div>
-                        <div className="hidden sm:block h-10 w-px bg-black/[0.08]" />
-                        <p className="text-black/45 uppercase font-black tracking-widest text-[10px]">Basé sur +250 avis Google</p>
+                        <div className="hidden sm:block h-10 w-px bg-white/10" />
+                        <p className="text-white/40 uppercase font-black tracking-widest text-[10px]">Basé sur +250 avis Google</p>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 lg:gap-14">
                     {reviews.map((review, index) => (
                         <ReviewCard key={index} {...review} />
                     ))}

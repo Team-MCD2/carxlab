@@ -546,54 +546,55 @@ const AdminDashboard = ({ onLogout }) => {
                             </button>
                         </div>
                     ) : (
-                        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-12 lg:gap-16">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
                             {annonces.map((annonce, i) => (
                                 <motion.div
                                     key={annonce.id}
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="group card-soft overflow-hidden transition-all"
+                                    className="group card-soft overflow-hidden transition-all flex flex-col"
                                 >
-                                    <div className="relative aspect-[16/10] overflow-hidden bg-white/[0.02] rounded-t-[var(--radius-card)]">
+                                    <div className="relative aspect-[16/9] md:aspect-[2/1] overflow-hidden bg-white/[0.02]">
                                         <SafeImage
                                             src={annonce.url}
                                             alt={`${annonce.marque} ${annonce.modele}`}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                                        <span className="absolute bottom-3 left-3 text-accent-gold font-black text-lg">
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                        <span className="absolute bottom-5 left-6 text-accent-gold font-black text-2xl md:text-3xl tracking-tight">
                                             {Number(annonce.prix).toLocaleString('fr-FR')} €
                                         </span>
-                                        <div className="absolute top-3 right-3 flex flex-col gap-1">
-                                            <span className="bg-black/60 backdrop-blur-md px-2 py-1 rounded-md text-[8px] font-black text-white/80 border border-white/10">
+                                        <div className="absolute top-5 right-5 flex gap-2">
+                                            <span className="bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg text-[10px] font-black text-white/90 border border-white/10">
                                                 {annonce.photos?.filter(p => p.type === 'exterior').length || 0} EXT.
                                             </span>
-                                            <span className="bg-black/60 backdrop-blur-md px-2 py-1 rounded-md text-[8px] font-black text-white/80 border border-white/10">
+                                            <span className="bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg text-[10px] font-black text-white/90 border border-white/10">
                                                 {annonce.photos?.filter(p => p.type === 'interior').length || 0} INT.
                                             </span>
                                         </div>
                                     </div>
 
-                                    <div className="p-8 md:p-10">
-                                        <h3 className="font-black text-xl md:text-2xl uppercase tracking-tight mb-5">
-                                            {annonce.marque} <span className="text-white/60 font-semibold">{annonce.modele}</span>
+                                    <div className="p-10 md:p-12 lg:p-14 flex flex-col flex-1">
+                                        <h3 className="font-black text-2xl md:text-3xl uppercase tracking-tight mb-6">
+                                            {annonce.marque}{' '}
+                                            <span className="text-white/55 font-semibold">{annonce.modele}</span>
                                         </h3>
-                                        <div className="flex flex-wrap gap-2 mt-3">
+                                        <div className="flex flex-wrap gap-3 mb-8">
                                             {[annonce.annee, annonce.km ? `${Number(annonce.km).toLocaleString('fr-FR')} km` : null, annonce.carburant]
                                                 .filter(Boolean).map((v, idx) => (
-                                                    <span key={idx} className="text-[10px] tracking-widest uppercase text-white/35 bg-white/5 px-2 py-1 rounded-md">
+                                                    <span key={idx} className="text-[11px] tracking-widest uppercase text-white/50 bg-white/[0.06] px-3 py-2 rounded-lg border border-white/[0.06]">
                                                         {v}
                                                     </span>
                                                 ))}
                                         </div>
                                         {annonce.description && (
-                                            <p className="text-white/25 text-xs leading-relaxed mt-5 line-clamp-3 font-light">
+                                            <p className="text-white/55 text-sm md:text-base leading-[1.85] font-light flex-1 line-clamp-5 mb-10">
                                                 {annonce.description}
                                             </p>
                                         )}
 
-                                        <div className="mt-6 pt-4 border-t border-white/5">
+                                        <div className="mt-auto pt-8 border-t border-white/[0.06]">
                                             {deleteId === annonce.id ? (
                                                 <div className="flex gap-2">
                                                     <button
@@ -613,15 +614,15 @@ const AdminDashboard = ({ onLogout }) => {
                                                 <div className="flex gap-4">
                                                     <button
                                                         onClick={() => { setEditAnnonce(annonce); setShowForm(true); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                                                        className="flex-1 py-4 bg-white/5 hover:bg-white/10 text-white/60 text-[10px] font-black uppercase tracking-widest rounded-xl transition-all border border-white/5 flex items-center justify-center gap-2"
+                                                        className="flex-1 py-5 bg-white/[0.06] hover:bg-white/10 text-white/70 text-xs font-black uppercase tracking-widest rounded-xl transition-all border border-white/[0.08] flex items-center justify-center gap-3"
                                                     >
-                                                        <Pencil size={12} /> Modifier
+                                                        <Pencil size={14} /> Modifier
                                                     </button>
                                                     <button
                                                         onClick={() => setDeleteId(annonce.id)}
-                                                        className="px-6 py-4 bg-red-500/10 hover:bg-red-500/20 text-red-400 text-[10px] font-black uppercase tracking-widest rounded-xl transition-all border border-red-500/10"
+                                                        className="px-8 py-5 bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-black uppercase tracking-widest rounded-xl transition-all border border-red-500/15"
                                                     >
-                                                        <Trash2 size={12} />
+                                                        <Trash2 size={14} />
                                                     </button>
                                                 </div>
                                             )}

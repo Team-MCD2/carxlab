@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Reviews from '../components/Reviews';
+import FeatureCard from '../components/FeatureCard';
 
 // Import Assets
 import heroImg from '../assets/Carxlab.png';
@@ -72,103 +73,75 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* SEO Presentation Section: Achat Revente Toulouse */}
-            <section className="section-padding section-elevated relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full lab-grid opacity-10 pointer-events-none" />
+            {/* Spécialiste + Services — section CLAIRE */}
+            <section className="section-padding section-light relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-gold/[0.04] blur-[180px] rounded-full pointer-events-none" />
                 <div className="main-container relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 md:gap-32 xl:gap-48 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-20 xl:gap-28 items-start">
                         <motion.div
-                            initial={{ opacity: 0, x: -40 }}
+                            initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="text-center lg:text-left"
+                            className="lg:col-span-7 text-center lg:text-left"
                         >
-                            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-accent-gold/10 border border-accent-gold/20 mb-8">
+                            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-accent-gold/10 border border-accent-gold/20 mb-10">
                                 <MapPin size={16} className="text-accent-gold" />
-                                <span className="text-accent-gold text-[10px] font-black uppercase tracking-[0.3em]">Garage Launaguet, Haute-Garonne</span>
+                                <span className="text-accent-gold text-[10px] font-black uppercase tracking-[0.25em]">Garage Launaguet, Haute-Garonne</span>
                             </div>
 
-                            <h2 className="text-5xl md:text-8xl font-black mb-12 md:mb-16 uppercase tracking-tighter leading-[1] px-4">
-                                VOTRE SPÉCIALISTE <br /><span className="gold-gradient">AUTO À LAUNAGUET</span>
+                            <h2 className="text-4xl md:text-6xl xl:text-7xl font-black mb-10 md:mb-14 uppercase tracking-tight leading-[1.05] text-black">
+                                VOTRE SPÉCIALISTE <br /><span className="text-accent-gold">AUTO À LAUNAGUET</span>
                             </h2>
 
-                            <p className="text-lg md:text-2xl text-white/60 mb-16 md:mb-24 font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
-                                CarXLab est votre partenaire de confiance pour l'<strong>achat et la revente de véhicules d'occasion</strong> et de prestige à Launaguet. Situés à 15 minutes de Toulouse, nous sélectionnons pour vous les meilleures pépites automobiles en Haute-Garonne.
+                            <p className="text-lg md:text-xl text-black/55 mb-16 md:mb-20 font-light leading-[1.85] max-w-2xl mx-auto lg:mx-0">
+                                CarXLab est votre partenaire de confiance pour l'<strong className="text-black font-semibold">achat et la revente de véhicules d'occasion</strong> et de prestige à Launaguet. À 15 minutes de Toulouse, nous sélectionnons les meilleures pépites automobiles en Haute-Garonne.
                             </p>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mb-16 md:mb-20">
                                 {[
-                                    {
-                                        title: "Achat Cash",
-                                        desc: "Reprise immédiate au meilleur prix du marché.",
-                                        icon: <Zap size={18} />
-                                    },
-                                    {
-                                        title: "Stock Lab",
-                                        desc: "Véhicules révisés sous protocole strict.",
-                                        icon: <ShieldCheck size={18} />
-                                    },
-                                    {
-                                        title: "Expertise 31",
-                                        desc: "Service de proximité dédié aux passionnés.",
-                                        icon: <MapPin size={18} />
-                                    },
-                                    {
-                                        title: "Vente Flash",
-                                        desc: "Vendez rapidement via notre réseau.",
-                                        icon: <Search size={18} />
-                                    }
+                                    { title: "Achat Cash", desc: "Reprise immédiate au meilleur prix du marché, sans démarche inutile.", icon: <Zap size={22} /> },
+                                    { title: "Stock Lab", desc: "Véhicules révisés sous protocole strict avant chaque mise en vente.", icon: <ShieldCheck size={22} /> },
+                                    { title: "Expertise 31", desc: "Service de proximité dédié aux passionnés et aux usages quotidiens.", icon: <MapPin size={22} /> },
+                                    { title: "Vente Flash", desc: "Vendez rapidement via notre réseau d'acheteurs qualifiés.", icon: <Search size={22} /> },
                                 ].map((item, i) => (
-                                    <div
-                                        key={i}
-                                        className="card-soft flex flex-col items-center lg:items-start text-center lg:text-left gap-8 p-10 md:p-12 lg:p-14 group"
-                                    >
-                                        <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold group-hover:bg-accent-gold group-hover:text-black transition-all duration-500">
-                                            {item.icon}
-                                        </div>
-                                        <div className="space-y-3">
-                                            <h4 className="text-sm font-black uppercase tracking-[0.15em] text-white group-hover:text-accent-gold transition-colors">{item.title}</h4>
-                                            <p className="text-xs text-white/45 leading-relaxed font-medium">{item.desc}</p>
-                                        </div>
-                                    </div>
+                                    <FeatureCard key={i} index={i} {...item} />
                                 ))}
                             </div>
 
-                            <div className="mt-16 md:mt-24 flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-8 md:gap-12">
+                            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-5 md:gap-8">
                                 <Link to="/stock">
-                                    <button className="gold-button px-14 py-5">ACHETER UN VÉHICULE</button>
+                                    <button className="gold-button px-12 md:px-14 py-5">ACHETER UN VÉHICULE</button>
                                 </Link>
                                 <Link to="/contact">
-                                    <button className="gold-button-outline px-14 py-5 text-accent-gold">VENDEZ VOTRE AUTO</button>
+                                    <button className="gold-button-outline px-12 md:px-14 py-5 !border-black/20 !text-black hover:!bg-black hover:!text-white">VENDEZ VOTRE AUTO</button>
                                 </Link>
                             </div>
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
+                            initial={{ opacity: 0, scale: 0.96 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 1 }}
-                            className="relative lg:block"
+                            className="lg:col-span-5 lg:sticky lg:top-32"
                         >
-                            <div className="relative aspect-[4/5] glass-panel overflow-hidden shadow-2xl">
-                                <div className="absolute inset-0 lab-grid opacity-10" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10" />
-
-                                <img
-                                    src={heroImg}
-                                    className="w-full h-full object-cover opacity-55 grayscale scale-105 hover:scale-100 transition-all duration-1000"
-                                    alt="CarXLab Toulouse Garage"
-                                />
-
-                                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-12 md:p-16 z-20">
-                                    <div className="w-20 h-20 md:w-24 md:h-24 mb-10 rounded-2xl bg-accent-gold/10 border border-accent-gold/15 flex items-center justify-center">
-                                        <MapPin size={40} className="text-accent-gold" />
+                            <div className="relative aspect-[4/5] card-light overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.12)] p-2">
+                                <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden">
+                                    <img
+                                        src={heroImg}
+                                        className="w-full h-full object-cover scale-105 hover:scale-100 transition-all duration-1000"
+                                        alt="CarXLab Toulouse Garage"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-12 z-10">
+                                        <div className="w-20 h-20 mb-8 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                                            <MapPin size={36} className="text-accent-gold" />
+                                        </div>
+                                        <h3 className="text-3xl font-black uppercase tracking-widest text-white mb-5">LAUNAGUET</h3>
+                                        <div className="soft-divider w-20 mb-5 opacity-80" />
+                                        <p className="text-white/70 text-xs font-semibold tracking-[0.35em] uppercase">Secteur Toulouse (31)</p>
                                     </div>
-                                    <h3 className="text-3xl md:text-4xl font-black uppercase tracking-widest mb-6">LAUNAGUET</h3>
-                                    <div className="soft-divider w-24 mb-6" />
-                                    <p className="text-white/50 text-sm font-semibold tracking-[0.3em] uppercase">Secteur Toulouse (31)</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -243,42 +216,60 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* SEO Content Section */}
-            <section className="section-padding section-elevated relative overflow-hidden flex justify-center">
-                <div className="main-container relative z-10 flex flex-col items-center w-full">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="w-full max-w-4xl text-center glass-panel p-10 md:p-16 lg:p-20 shadow-2xl"
-                    >
-                        <h2 className="text-3xl md:text-5xl font-black mb-14 md:mb-20 uppercase tracking-tighter leading-tight gold-gradient px-2">
-                            VÉHICULES D'OCCASION À TOULOUSE - LAUNAGUET
-                        </h2>
-                        <div className="flex flex-col gap-12 md:gap-14 text-white/50 text-base md:text-lg font-light leading-[1.9] text-center px-2 md:px-6">
-                            <p>
-                                Bienvenue chez <strong className="text-white/90">CarXLab</strong>, votre garage spécialisé dans la vente de voitures d'occasion premium. Notre laboratoire automobile est stratégiquement situé à Launaguet, à quelques minutes de <strong className="text-white/90">Toulouse</strong>, Blagnac, et l'Union. Nous sélectionnons rigoureusement chaque véhicule pour vous offrir une qualité irréprochable en Haute-Garonne.
-                            </p>
-                            <p>
-                                Que vous recherchiez une berline de luxe, un SUV familial ou une sportive d'exception, notre catalogue live est mis à jour quotidiennement. Chaque annonce détaille précisément l'historique du véhicule, son kilométrage certifié et ses options exclusives. Nos services s'étendent à tout le secteur de Toulouse métropole, incluant Aucamville, Saint-Alban et Castelginest.
-                            </p>
-                            <p>
-                                En plus de la vente, profitez de notre expertise gratuite pour le rachat de votre voiture cash. Nous rachetons tous types de modèles récents au meilleur prix du marché local. Faites confiance à l'expertise CarXLab pour votre prochain achat automobile dans le 31.
-                            </p>
-                        </div>
-
-                        <div className="mt-16 pt-14 border-t border-white/[0.06]">
-                            <div className="section-label max-w-xs mx-auto">
-                                <span className="text-[10px] text-accent-gold/80 font-black tracking-[0.35em] uppercase">Expertise Automobile Lab</span>
+            {/* SEO éditorial — section SOMBRE */}
+            <section className="section-padding section-dark relative overflow-hidden">
+                <div className="absolute inset-0 lab-grid opacity-[0.06] pointer-events-none" />
+                <div className="main-container relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-20 xl:gap-28">
+                        <motion.div
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="lg:col-span-4 lg:sticky lg:top-32 self-start"
+                        >
+                            <div className="section-label mb-8 md:justify-start">
+                                <span className="text-accent-gold tracking-[0.35em] font-black text-xs uppercase">Expertise</span>
                             </div>
-                        </div>
-                    </motion.div>
+                            <h2 className="text-3xl md:text-5xl xl:text-6xl font-black uppercase tracking-tight leading-[1.08] text-white mb-8">
+                                VÉHICULES D'OCCASION <span className="text-accent-gold">À TOULOUSE</span>
+                            </h2>
+                            <p className="text-white/40 text-base md:text-lg font-light leading-relaxed max-w-md">
+                                Launaguet · Haute-Garonne · Métropole toulousaine
+                            </p>
+                            <div className="soft-divider w-full max-w-xs mt-12 opacity-50" />
+                            <p className="mt-8 text-[10px] uppercase tracking-[0.35em] text-accent-gold/70 font-black">
+                                Expertise Automobile Lab
+                            </p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="lg:col-span-8 flex flex-col gap-12 md:gap-16"
+                        >
+                            <p className="text-lg md:text-xl lg:text-2xl text-white/70 font-light leading-[1.85]">
+                                Bienvenue chez <strong className="text-white font-medium">CarXLab</strong>, votre garage spécialisé dans la vente de voitures d'occasion premium. Notre laboratoire automobile est situé à Launaguet, à quelques minutes de <strong className="text-white font-medium">Toulouse</strong>, Blagnac et l'Union.
+                            </p>
+                            <p className="text-base md:text-lg text-white/45 font-light leading-[1.9]">
+                                Que vous recherchiez une berline de luxe, un SUV familial ou une sportive d'exception, notre catalogue live est mis à jour quotidiennement. Chaque annonce détaille l'historique du véhicule, son kilométrage certifié et ses options exclusives — pour Aucamville, Saint-Alban, Castelginest et toute la métropole.
+                            </p>
+                            <p className="text-base md:text-lg text-white/45 font-light leading-[1.9]">
+                                Profitez aussi de notre expertise pour le rachat cash de votre véhicule. Nous rachetons tous types de modèles récents au meilleur prix du marché local. Faites confiance à CarXLab pour votre prochain achat dans le 31.
+                            </p>
+                            <div className="pt-4">
+                                <Link to="/stock" className="inline-flex items-center gap-4 text-accent-gold text-xs font-black uppercase tracking-[0.3em] hover:gap-6 transition-all">
+                                    Parcourir le stock <ArrowRight size={16} />
+                                </Link>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
-                <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-accent-gold/[0.04] blur-[120px] rounded-full pointer-events-none" />
             </section>
 
-            {/* CTA Section */}
-            <section className="section-padding section-dark relative flex items-center justify-center overflow-hidden">
+            {/* CTA — section CLAIRE */}
+            <section className="section-padding section-light relative flex items-center justify-center overflow-hidden">
                 <div className="main-container text-center relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -286,10 +277,10 @@ const Home = () => {
                         viewport={{ once: true }}
                         className="flex flex-col items-center"
                     >
-                        <h2 className="text-4xl md:text-8xl font-black mb-12 md:mb-16 uppercase leading-[1] tracking-tight">
-                            VOTRE <br /><span className="gold-gradient">FUTUR</span> EST ICI
+                        <h2 className="text-4xl md:text-7xl font-black mb-12 md:mb-16 uppercase leading-[1.05] tracking-tight text-black">
+                            VOTRE <br /><span className="text-accent-gold">FUTUR</span> EST ICI
                         </h2>
-                        <p className="text-lg md:text-2xl text-white/30 mb-16 md:mb-20 max-w-2xl mx-auto font-light leading-relaxed">
+                        <p className="text-lg md:text-xl text-black/50 mb-16 md:mb-20 max-w-2xl mx-auto font-light leading-[1.85]">
                             Vendez votre véhicule au juste prix ou trouvez la perle rare parmi notre stock ultra-limité.
                         </p>
                         <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full px-6">
@@ -302,7 +293,7 @@ const Home = () => {
                         </div>
                     </motion.div>
                 </div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent-gold/5 blur-[250px] pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] bg-accent-gold/[0.06] blur-[200px] rounded-full pointer-events-none" />
             </section>
         </div>
     );
