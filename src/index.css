@@ -12,6 +12,9 @@
   --bg-card: #111111;
   --bg-light: #f5f5f5;
   --bg-light-card: #ffffff;
+  --bg-reviews: #131210;
+  --bg-review-card: #f6f4ef;
+  --border-review-card: rgba(212, 175, 55, 0.12);
   --accent-gold: #d4af37;
   --accent-gold-glow: 0 0 15px rgba(212, 175, 55, 0.25), 0 0 40px rgba(212, 175, 55, 0.08);
   --text-main: #ffffff;
@@ -160,6 +163,27 @@ body {
 
 .section-light .text-on-light-strong {
   color: #111111;
+}
+
+/* Témoignages : fond sombre chaud + cartes crème (évite le blanc pur sur noir) */
+.section-reviews {
+  background: linear-gradient(
+    180deg,
+    var(--bg-light) 0%,
+    var(--bg-reviews) 18%,
+    var(--bg-reviews) 82%,
+    var(--bg-light) 100%
+  );
+  color: #f0ebe3;
+}
+
+.card-review {
+  background: var(--bg-review-card);
+  border: 1px solid var(--border-review-card);
+  border-radius: var(--radius-panel);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.6) inset;
 }
 
 /* Séparateurs doux (remplace les traits durs) */
