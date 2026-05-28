@@ -9,9 +9,9 @@ const ReviewCard = ({ name, date, text, rating = 5, index }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-40px' }}
         transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-        className="card-on-dark overflow-hidden p-10 md:p-12 flex flex-col h-full min-h-[340px]"
+        className="card-on-dark review-card flex flex-col h-full min-h-[360px]"
     >
-        <div className="flex items-center justify-between gap-4 mb-10 pb-8 border-b border-black/10">
+        <div className="flex items-center justify-between gap-4 mb-8 md:mb-10 pb-6 md:pb-8 border-b border-black/10">
             <div className="flex gap-0.5 shrink-0" aria-hidden="true">
                 {[...Array(rating)].map((_, i) => (
                     <Star key={i} size={16} className="fill-accent-gold text-accent-gold shrink-0" strokeWidth={0} />
@@ -26,8 +26,8 @@ const ReviewCard = ({ name, date, text, rating = 5, index }) => (
             « {text} »
         </blockquote>
 
-        <footer className="flex items-end justify-between gap-6 pt-6 border-t border-black/10">
-            <div>
+        <footer className="flex items-end justify-between gap-6 pt-6 md:pt-8 border-t border-black/10 mt-auto">
+            <div className="min-w-0 pr-2">
                 <p className="text-black font-black uppercase tracking-[0.12em] text-sm">{name}</p>
                 <p className="text-black/45 text-[11px] uppercase font-bold tracking-widest mt-2">{date}</p>
             </div>
@@ -87,7 +87,7 @@ const Reviews = () => {
                     </div>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
                     {reviews.map((review, index) => (
                         <ReviewCard key={index} index={index} {...review} />
                     ))}

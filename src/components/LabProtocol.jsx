@@ -69,13 +69,13 @@ const LabProtocol = () => (
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, margin: '-60px' }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 mb-4 md:mb-6"
             >
                 {steps.map((step) => (
                     <motion.article key={step.num} variants={item} className="protocol-step group">
                         <div className="flex items-center justify-between">
                             <span className="protocol-step-num">{step.num}</span>
-                            <div className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center text-black group-hover:bg-black group-hover:text-accent-gold transition-all duration-400">
+                            <div className="w-12 h-12 rounded-md border-2 border-black flex items-center justify-center text-black group-hover:bg-black group-hover:text-accent-gold transition-all duration-400">
                                 <step.icon size={22} strokeWidth={1.75} />
                             </div>
                         </div>
@@ -94,7 +94,7 @@ const LabProtocol = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.35, duration: 0.6 }}
-                className="flex justify-center mt-20 md:mt-32 pt-4"
+                className="flex justify-center mt-16 md:mt-24 pt-6 md:pt-8"
             >
                 <Link
                     to="/expertise"

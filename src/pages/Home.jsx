@@ -86,7 +86,7 @@ const Home = () => {
                             transition={{ duration: 0.8 }}
                             className="lg:col-span-7 text-center lg:text-left"
                         >
-                            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-accent-gold/10 border border-accent-gold/20 mb-10">
+                            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-md bg-accent-gold/10 border border-accent-gold/20 mb-10">
                                 <MapPin size={16} className="text-accent-gold" />
                                 <span className="text-accent-gold text-[10px] font-black uppercase tracking-[0.25em]">Garage Launaguet, Haute-Garonne</span>
                             </div>
@@ -99,7 +99,7 @@ const Home = () => {
                                 CarXLab est votre partenaire de confiance pour l'<strong className="text-black font-semibold">achat et la revente de véhicules d'occasion</strong> et de prestige à Launaguet. À 15 minutes de Toulouse, nous sélectionnons les meilleures pépites automobiles en Haute-Garonne.
                             </p>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 mb-16 md:mb-24">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
                                 {[
                                     { title: "Achat Cash", desc: "Reprise immédiate au meilleur prix du marché, sans démarche inutile.", icon: <Zap size={22} strokeWidth={1.75} /> },
                                     { title: "Stock Lab", desc: "Véhicules révisés sous protocole strict avant chaque mise en vente.", icon: <ShieldCheck size={22} strokeWidth={1.75} /> },
@@ -110,7 +110,7 @@ const Home = () => {
                                 ))}
                             </div>
 
-                            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-5 md:gap-8">
+                            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-5 md:gap-8 mt-14 md:mt-20 pt-2">
                                 <Link to="/stock">
                                     <button className="gold-button px-12 md:px-14 py-5">ACHETER UN VÉHICULE</button>
                                 </Link>
@@ -165,9 +165,9 @@ const Home = () => {
                             <h2 className="text-4xl md:text-7xl font-black mb-16 md:mb-20 uppercase tracking-tight leading-[1.1] text-black">
                                 OÙ NOUS <br /><span className="text-accent-gold">TROUVER</span>
                             </h2>
-                            <div className="space-y-8 w-full flex flex-col items-center md:items-stretch max-w-md md:max-w-none">
-                                <div className="card-light-soft flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10 group">
-                                    <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold shrink-0">
+                            <div className="space-y-8 md:space-y-10 w-full flex flex-col items-center md:items-stretch max-w-md md:max-w-none">
+                                <div className="card-light-soft flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10 lg:p-12 group w-full">
+                                    <div className="w-16 h-16 rounded-lg bg-accent-gold/10 flex items-center justify-center text-accent-gold shrink-0">
                                         <MapPin size={28} />
                                     </div>
                                     <div className="text-center md:text-left">
@@ -175,8 +175,8 @@ const Home = () => {
                                         <p className="text-black/50 text-base md:text-lg font-light leading-relaxed">4 impasses du pont<br />31140 Launaguet, France</p>
                                     </div>
                                 </div>
-                                <div className="card-light-soft flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10 group">
-                                    <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold shrink-0">
+                                <div className="card-light-soft flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10 lg:p-12 group w-full">
+                                    <div className="w-16 h-16 rounded-lg bg-accent-gold/10 flex items-center justify-center text-accent-gold shrink-0">
                                         <Phone size={28} />
                                     </div>
                                     <div className="text-center md:text-left">
@@ -187,7 +187,7 @@ const Home = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-12 flex justify-center md:justify-start w-full">
+                            <div className="mt-14 md:mt-16 flex justify-center md:justify-start w-full">
                                 <a
                                     href="https://www.google.com/maps/search/?api=1&query=4+impasse+du+pont+31140+Launaguet"
                                     target="_blank"

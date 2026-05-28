@@ -34,7 +34,7 @@ const FeatureCard = ({ icon, title, desc, index }) => (
         </div>
 
         {/* Ligne d'accent au survol */}
-        <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-accent-gold/0 to-transparent group-hover:via-accent-gold/60 transition-all duration-500 rounded-full" />
+        <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-accent-gold/0 to-transparent group-hover:via-accent-gold/60 transition-all duration-500" />
     </motion.article>
 );
 

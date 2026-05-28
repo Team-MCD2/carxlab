@@ -2,7 +2,7 @@ import React from 'react';
 
 const GoogleBadge = ({ className = 'w-8 h-8' }) => (
     <div
-        className={`${className} rounded-full bg-white shadow-sm flex items-center justify-center shrink-0`}
+        className={`${className} rounded-md bg-white shadow-sm flex items-center justify-center shrink-0`}
         aria-label="Avis Google"
     >
         <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">

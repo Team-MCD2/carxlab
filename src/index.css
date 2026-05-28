@@ -23,8 +23,9 @@
   --glass-bg-hover: rgba(255, 255, 255, 0.07);
   --gold-glow-text: 0 0 10px rgba(212, 175, 55, 0.2);
   --header-height: 80px;
-  --radius-card: 1.75rem;
-  --radius-panel: 2.5rem;
+  --radius-card: 0.75rem;
+  --radius-panel: 1rem;
+  --radius-button: 0.5rem;
 }
 
 @media (min-width: 768px) {
@@ -258,9 +259,19 @@ body {
 .card-on-dark {
   background: #ffffff;
   color: #000000;
-  border-radius: var(--radius-panel);
+  border-radius: var(--radius-card);
   border: none;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+}
+
+.review-card {
+  padding: 2.5rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .review-card {
+    padding: 3rem 2.5rem;
+  }
 }
 
 .card-light {
@@ -283,13 +294,19 @@ body {
   background: #ffffff;
   color: #000000;
   border: 2px solid #000000;
-  border-radius: 1.25rem;
+  border-radius: var(--radius-card);
   padding: 2rem 1.75rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   height: 100%;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+@media (min-width: 768px) {
+  .protocol-step {
+    padding: 2.25rem 2rem;
+  }
 }
 
 .protocol-step:hover {
@@ -300,7 +317,7 @@ body {
 .protocol-step-num {
   width: 3rem;
   height: 3rem;
-  border-radius: 50%;
+  border-radius: var(--radius-button);
   background: #000000;
   color: var(--accent-gold);
   display: flex;
@@ -444,7 +461,7 @@ body {
 .feature-card {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.07);
-  border-radius: 1.5rem;
+  border-radius: var(--radius-card);
   padding: 2rem 1.75rem;
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.04),
@@ -457,8 +474,7 @@ body {
 
 @media (min-width: 768px) {
   .feature-card {
-    padding: 2.25rem 2rem;
-    border-radius: 1.75rem;
+    padding: 2.5rem 2.25rem;
   }
 }
 
@@ -492,13 +508,6 @@ body {
   height: 1.375rem;
 }
 
-@media (min-width: 768px) {
-  .card-light,
-  .card-light-soft {
-    border-radius: var(--radius-panel);
-  }
-}
-
 .neon-border {
   border: 1px solid var(--accent-gold);
   box-shadow: var(--neon-gold-glow);
@@ -521,7 +530,7 @@ body {
   justify-content: center;
   overflow: hidden;
   position: relative;
-  border-radius: 100px;
+  border-radius: var(--radius-button);
 }
 
 .gold-button::after {
@@ -566,7 +575,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 100px;
+  border-radius: var(--radius-button);
 }
 
 .gold-button-outline:hover {
