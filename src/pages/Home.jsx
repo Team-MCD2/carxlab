@@ -47,7 +47,9 @@ const Home = () => {
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         className="max-w-6xl w-full px-4"
                     >
-                        <span className="section-tag block text-center mb-10 md:mb-14">Prototype V4 // Lab</span>
+                        <div className="section-label mb-10 md:mb-14 w-full max-w-md mx-auto">
+                            <span className="text-accent-gold tracking-[0.25em] md:tracking-[0.5em] font-black text-[9px] md:text-sm uppercase">Prototype V4 // Lab</span>
+                        </div>
 
                         <h1 className="hero-title mb-16 md:mb-20 flex flex-col items-center gap-4 md:gap-0">
                             <span>L'ART DE LA</span>
@@ -151,35 +153,35 @@ const Home = () => {
             {/* Reviews Section */}
             <Reviews />
 
-            {/* Protocole — section CLAIRE (alternance) */}
-            <LabProtocol />
-
-            {/* Find Us — section SOMBRE */}
-            <section className="section-padding section-dark relative overflow-hidden border-t border-white/10">
+            {/* Find Us Section */}
+            <section className="section-padding section-light relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-gold/[0.06] blur-[150px] rounded-full pointer-events-none" />
                 <div className="main-container relative z-10">
                     <div className="flex flex-col md:flex-row items-center gap-20 md:gap-24 xl:gap-32">
                         <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-                            <span className="section-tag block md:text-left text-center">Localisation</span>
-                            <h2 className="text-4xl md:text-7xl font-black mb-16 md:mb-20 uppercase tracking-tight leading-[1.1] text-white">
+                            <div className="section-label section-label-light mb-10 w-full md:justify-start">
+                                <span className="text-accent-gold tracking-[0.35em] font-black text-xs uppercase">Localisation</span>
+                            </div>
+                            <h2 className="text-4xl md:text-7xl font-black mb-16 md:mb-20 uppercase tracking-tight leading-[1.1] text-black">
                                 OÙ NOUS <br /><span className="text-accent-gold">TROUVER</span>
                             </h2>
-                            <div className="space-y-6 w-full flex flex-col items-center md:items-stretch max-w-md md:max-w-none">
-                                <div className="surface-white flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10">
-                                    <div className="w-16 h-16 rounded-xl bg-black flex items-center justify-center text-accent-gold shrink-0">
+                            <div className="space-y-8 w-full flex flex-col items-center md:items-stretch max-w-md md:max-w-none">
+                                <div className="card-light flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10 group">
+                                    <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold shrink-0">
                                         <MapPin size={28} />
                                     </div>
                                     <div className="text-center md:text-left">
                                         <h4 className="text-black font-black uppercase tracking-widest mb-3">Le Laboratoire</h4>
-                                        <p className="text-black/55 text-base md:text-lg font-light leading-relaxed">4 impasses du pont<br />31140 Launaguet, France</p>
+                                        <p className="text-black/50 text-base md:text-lg font-light leading-relaxed">4 impasses du pont<br />31140 Launaguet, France</p>
                                     </div>
                                 </div>
-                                <div className="surface-white flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10">
-                                    <div className="w-16 h-16 rounded-xl bg-black flex items-center justify-center text-accent-gold shrink-0">
+                                <div className="card-light flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10 group">
+                                    <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold shrink-0">
                                         <Phone size={28} />
                                     </div>
                                     <div className="text-center md:text-left">
                                         <h4 className="text-black font-black uppercase tracking-widest mb-3">Ligne Directe</h4>
-                                        <p className="text-black/55 text-base md:text-lg font-light leading-relaxed">
+                                        <p className="text-black/50 text-base md:text-lg font-light leading-relaxed">
                                             <a href="tel:0659330312" className="hover:text-accent-gold transition-colors">06 59 33 03 12</a><br />Expertise & Stock
                                         </p>
                                     </div>
@@ -198,7 +200,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="w-full md:w-1/2">
-                            <div className="relative aspect-video md:aspect-square surface-white overflow-hidden p-1">
+                            <div className="relative aspect-video md:aspect-square card-light overflow-hidden group p-1">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.67!2d1.46!3d43.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb1!2s4+Imp.+du+Pont%2C+31140+Launaguet!5e0!3m2!1sfr!2sfr!4v1"
                                     width="100%"
@@ -215,8 +217,9 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* SEO éditorial — section CLAIRE */}
-            <section className="section-padding section-light relative overflow-hidden border-t border-black/10">
+            {/* SEO éditorial — section SOMBRE */}
+            <section className="section-padding section-dark relative overflow-hidden">
+                <div className="absolute inset-0 lab-grid opacity-[0.06] pointer-events-none" />
                 <div className="main-container relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-20 xl:gap-28">
                         <motion.div
@@ -225,12 +228,18 @@ const Home = () => {
                             viewport={{ once: true }}
                             className="lg:col-span-4 lg:sticky lg:top-32 self-start"
                         >
-                            <span className="section-tag block">Expertise</span>
-                            <h2 className="text-3xl md:text-5xl xl:text-6xl font-black uppercase tracking-tight leading-[1.08] text-black mb-8">
+                            <div className="section-label mb-8 md:justify-start">
+                                <span className="text-accent-gold tracking-[0.35em] font-black text-xs uppercase">Expertise</span>
+                            </div>
+                            <h2 className="text-3xl md:text-5xl xl:text-6xl font-black uppercase tracking-tight leading-[1.08] text-white mb-8">
                                 VÉHICULES D'OCCASION <span className="text-accent-gold">À TOULOUSE</span>
                             </h2>
-                            <p className="text-black/50 text-base md:text-lg font-light leading-relaxed max-w-md">
+                            <p className="text-white/40 text-base md:text-lg font-light leading-relaxed max-w-md">
                                 Launaguet · Haute-Garonne · Métropole toulousaine
+                            </p>
+                            <div className="soft-divider w-full max-w-xs mt-12 opacity-50" />
+                            <p className="mt-8 text-[10px] uppercase tracking-[0.35em] text-accent-gold/70 font-black">
+                                Expertise Automobile Lab
                             </p>
                         </motion.div>
 
@@ -241,17 +250,17 @@ const Home = () => {
                             transition={{ delay: 0.1 }}
                             className="lg:col-span-8 flex flex-col gap-12 md:gap-16"
                         >
-                            <p className="text-lg md:text-xl lg:text-2xl text-black/75 font-light leading-[1.85]">
-                                Bienvenue chez <strong className="text-black font-semibold">CarXLab</strong>, votre garage spécialisé dans la vente de voitures d'occasion premium. Notre laboratoire automobile est situé à Launaguet, à quelques minutes de <strong className="text-black font-semibold">Toulouse</strong>, Blagnac et l'Union.
+                            <p className="text-lg md:text-xl lg:text-2xl text-white/70 font-light leading-[1.85]">
+                                Bienvenue chez <strong className="text-white font-medium">CarXLab</strong>, votre garage spécialisé dans la vente de voitures d'occasion premium. Notre laboratoire automobile est situé à Launaguet, à quelques minutes de <strong className="text-white font-medium">Toulouse</strong>, Blagnac et l'Union.
                             </p>
-                            <p className="text-base md:text-lg text-black/50 font-light leading-[1.9]">
+                            <p className="text-base md:text-lg text-white/45 font-light leading-[1.9]">
                                 Que vous recherchiez une berline de luxe, un SUV familial ou une sportive d'exception, notre catalogue live est mis à jour quotidiennement. Chaque annonce détaille l'historique du véhicule, son kilométrage certifié et ses options exclusives — pour Aucamville, Saint-Alban, Castelginest et toute la métropole.
                             </p>
-                            <p className="text-base md:text-lg text-black/50 font-light leading-[1.9]">
+                            <p className="text-base md:text-lg text-white/45 font-light leading-[1.9]">
                                 Profitez aussi de notre expertise pour le rachat cash de votre véhicule. Nous rachetons tous types de modèles récents au meilleur prix du marché local. Faites confiance à CarXLab pour votre prochain achat dans le 31.
                             </p>
                             <div className="pt-4">
-                                <Link to="/stock" className="inline-flex items-center gap-4 text-black text-xs font-black uppercase tracking-[0.25em] border-2 border-black px-6 py-3 rounded-lg hover:bg-black hover:text-white transition-all">
+                                <Link to="/stock" className="inline-flex items-center gap-4 text-accent-gold text-xs font-black uppercase tracking-[0.3em] hover:gap-6 transition-all">
                                     Parcourir le stock <ArrowRight size={16} />
                                 </Link>
                             </div>
@@ -260,8 +269,11 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* CTA — section SOMBRE */}
-            <section className="section-padding section-dark relative flex items-center justify-center overflow-hidden pb-28 md:pb-36 border-t border-white/10">
+            {/* Protocole lab — section SOMBRE animée */}
+            <LabProtocol />
+
+            {/* CTA — section CLAIRE */}
+            <section className="section-padding section-light-blend relative flex items-center justify-center overflow-hidden pb-28 md:pb-36">
                 <div className="main-container text-center relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -270,10 +282,10 @@ const Home = () => {
                         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                         className="flex flex-col items-center"
                     >
-                        <h2 className="text-4xl md:text-7xl font-black mb-12 md:mb-16 uppercase leading-[1.05] tracking-tight text-white">
+                        <h2 className="text-4xl md:text-7xl font-black mb-12 md:mb-16 uppercase leading-[1.05] tracking-tight text-black">
                             VOTRE <br /><span className="text-accent-gold">FUTUR</span> EST ICI
                         </h2>
-                        <p className="text-lg md:text-xl text-white/60 mb-16 md:mb-20 max-w-2xl mx-auto font-light leading-[1.85]">
+                        <p className="text-lg md:text-xl text-black/50 mb-16 md:mb-20 max-w-2xl mx-auto font-light leading-[1.85]">
                             Vendez votre véhicule au juste prix ou trouvez la perle rare parmi notre stock ultra-limité.
                         </p>
                         <motion.div
@@ -296,7 +308,7 @@ const Home = () => {
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="gold-button-outline w-full px-12 py-5 text-xs"
+                                    className="gold-button-outline w-full px-12 py-5 text-xs !border-black/20 !text-black hover:!bg-black hover:!text-white"
                                 >
                                     CATALOGUE LIVE
                                 </motion.button>

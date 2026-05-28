@@ -212,8 +212,8 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
         }
     };
 
-    const inputCls = 'admin-input';
-    const priceCls = 'admin-input !border-accent-gold/40 !text-accent-gold font-bold';
+    const inputCls = 'w-full bg-white/5 border border-white/10 p-3 rounded-xl focus:border-accent-gold outline-none text-white/80 text-sm transition-all';
+    const labelCls = 'block text-[10px] tracking-[0.4em] uppercase font-bold text-accent-gold mb-2';
 
     if (success) {
         return (
@@ -230,7 +230,8 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
     return (
         <form onSubmit={handleSubmit} className="space-y-20">
             <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
-                <div className="admin-panel relative overflow-hidden">
+                <div className="card-soft p-8 md:p-10 relative overflow-hidden group">
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-accent-gold/30 via-accent-gold/10 to-transparent" />
                     <div className="flex items-center gap-4 mb-8">
                         <div className="w-10 h-10 rounded-xl bg-accent-gold/10 border border-accent-gold/20 flex-center">
                             <Car size={18} className="text-accent-gold" />
@@ -281,7 +282,8 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
                     </div>
                 </div>
 
-                <div className="admin-panel relative overflow-hidden">
+                <div className="card-soft p-8 md:p-10 relative overflow-hidden group">
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-white/15 via-white/5 to-transparent" />
                     <div className="flex items-center gap-4 mb-8">
                         <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex-center">
                             <div className="w-4 h-4 border-2 border-white/20 rounded-sm" />
@@ -323,57 +325,57 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
                 </div>
             </div>
 
-            <div className="admin-panel">
-                <h2 className="text-lg font-black uppercase tracking-[0.2em] text-white mb-10 pb-6 border-b border-white/10">
-                    Spécifications
-                </h2>
+            <div className="glass-panel p-10 md:p-14 lg:p-16 relative bg-white/[0.01]">
+                <div className="section-label mb-14 max-w-xs">
+                    <h2 className="text-lg font-black uppercase tracking-[0.3em]">Spécifications</h2>
+                </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
-                    <div className="admin-field">
-                        <label>Constructeur</label>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+                    <div className="space-y-3">
+                        <label className={labelCls}>Constructeur</label>
                         <input type="text" value={form.marque} onChange={set('marque')} list="marques-list" placeholder="Ex: Porsche" className={inputCls} />
                         <datalist id="marques-list">{MARQUES.map((m) => <option key={m} value={m} />)}</datalist>
                     </div>
-                    <div className="admin-field">
-                        <label>Modèle précis</label>
+                    <div className="space-y-3">
+                        <label className={labelCls}>Modèle Précis</label>
                         <input type="text" value={form.modele} onChange={set('modele')} placeholder="Ex: 911 GT3 RS" className={inputCls} />
                     </div>
-                    <div className="admin-field">
-                        <label>Prix de vente (€)</label>
-                        <input type="number" value={form.prix} onChange={set('prix')} required placeholder="Ex: 245000" className={priceCls} />
+                    <div className="space-y-3">
+                        <label className={labelCls}>Prix de Vente (€)</label>
+                        <input type="number" value={form.prix} onChange={set('prix')} required placeholder="Ex: 245000" className={`${inputCls} !border-accent-gold/20 !bg-accent-gold/5 text-accent-gold font-black`} />
                     </div>
-                    <div className="admin-field">
-                        <label>Année</label>
+                    <div className="space-y-3">
+                        <label className={labelCls}>Année</label>
                         <input type="number" value={form.annee} onChange={set('annee')} placeholder="2024" className={inputCls} />
                     </div>
-                    <div className="admin-field">
-                        <label>Kilométrage</label>
-                        <input type="number" value={form.km} onChange={set('km')} placeholder="50 000" className={inputCls} />
+                    <div className="space-y-3">
+                        <label className={labelCls}>Kilométrage</label>
+                        <input type="number" value={form.km} onChange={set('km')} placeholder="500" className={inputCls} />
                     </div>
-                    <div className="admin-field">
-                        <label>Teinte extérieure</label>
+                    <div className="space-y-3">
+                        <label className={labelCls}>Teinte Extérieure</label>
                         <input type="text" value={form.couleur} onChange={set('couleur')} placeholder="Gris Craie" className={inputCls} />
                     </div>
-                    <div className="admin-field">
-                        <label>Motorisation</label>
+                    <div className="space-y-3">
+                        <label className={labelCls}>Motorisation</label>
                         <input type="text" value={form.carburant} onChange={set('carburant')} list="carburants-list" placeholder="Essence" className={inputCls} />
                         <datalist id="carburants-list">{CARBURANTS.map((c) => <option key={c} value={c} />)}</datalist>
                     </div>
-                    <div className="admin-field">
-                        <label>Transmission</label>
+                    <div className="space-y-3">
+                        <label className={labelCls}>Transmission</label>
                         <input type="text" value={form.transmission} onChange={set('transmission')} list="transmissions-list" placeholder="PDK" className={inputCls} />
                         <datalist id="transmissions-list">{TRANSMISSIONS.map((t) => <option key={t} value={t} />)}</datalist>
                     </div>
                 </div>
 
-                <div className="admin-field mt-12 pt-12 border-t border-white/10">
-                    <label>Présentation & options</label>
+                <div className="mt-16 pt-16 border-t border-white/5 space-y-4">
+                    <label className={labelCls}>Présentation & Options</label>
                     <textarea
                         rows={6}
                         value={form.description}
                         onChange={set('description')}
                         placeholder="Détaillez ici les équipements, l'historique et l'état général du véhicule..."
-                        className={`${inputCls} resize-none leading-relaxed min-h-[160px]`}
+                        className={`${inputCls} resize-none p-6 leading-relaxed`}
                     />
                 </div>
             </div>
@@ -511,10 +513,10 @@ const AdminDashboard = ({ onLogout }) => {
                             exit={{ opacity: 0, height: 0 }}
                             className="mb-20 overflow-hidden"
                         >
-                            <div className="admin-panel border-accent-gold/30">
-                                <h2 className="text-base font-black uppercase tracking-[0.2em] text-white mb-10 pb-6 border-b border-white/10">
-                                    {editAnnonce ? "Modifier l'annonce" : "Nouvelle annonce"}
-                                </h2>
+                            <div className="glass-panel border border-accent-gold/10 p-10 md:p-14 lg:p-16">
+                                <div className="section-label mb-12 max-w-sm">
+                                    <h2 className="text-base font-black uppercase tracking-[0.25em]">{editAnnonce ? "Modifier l'Annonce" : "Nouvelle Annonce"}</h2>
+                                </div>
                                 <AnnonceForm 
                                     onSuccess={() => { setEditAnnonce(null); handleSuccess(); }} 
                                     onCancel={() => { setEditAnnonce(null); setShowForm(false); }} 
@@ -551,7 +553,7 @@ const AdminDashboard = ({ onLogout }) => {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="group overflow-hidden transition-all flex flex-col border border-white/15 rounded-xl"
+                                    className="group card-soft overflow-hidden transition-all flex flex-col"
                                 >
                                     <div className="relative aspect-[16/9] md:aspect-[2/1] overflow-hidden bg-white/[0.02]">
                                         <SafeImage
@@ -573,26 +575,28 @@ const AdminDashboard = ({ onLogout }) => {
                                         </div>
                                     </div>
 
-                                    <div className="surface-white p-10 md:p-12 flex flex-col flex-1">
-                                        <h3 className="font-black text-2xl md:text-3xl uppercase tracking-tight mb-6 text-black">
+                                    <div className="p-10 md:p-12 lg:p-14 flex flex-col flex-1 min-h-[280px]">
+                                        <h3 className="font-black text-2xl md:text-3xl uppercase tracking-tight mb-6 pl-0.5">
                                             {annonce.marque}{' '}
-                                            <span className="text-black/50 font-semibold">{annonce.modele}</span>
+                                            <span className="text-white/55 font-semibold">{annonce.modele}</span>
                                         </h3>
-                                        <div className="flex flex-wrap gap-3 mb-8">
+                                        <div className="flex flex-wrap gap-3 mb-8 pl-0.5">
                                             {[annonce.annee, annonce.km ? `${Number(annonce.km).toLocaleString('fr-FR')} km` : null, annonce.carburant]
                                                 .filter(Boolean).map((v, idx) => (
-                                                    <span key={idx} className="text-[11px] tracking-widest uppercase text-black/60 bg-black/5 px-3 py-2 rounded-md border border-black/10">
+                                                    <span key={idx} className="text-[11px] tracking-widest uppercase text-white/50 bg-white/[0.06] px-3 py-2 rounded-lg border border-white/[0.06]">
                                                         {v}
                                                     </span>
                                                 ))}
                                         </div>
-                                        {annonce.description && (
-                                            <p className="text-black/55 text-sm md:text-base leading-[1.9] font-light flex-1 line-clamp-4 mb-8">
+                                        {annonce.description ? (
+                                            <p className="text-white/60 text-sm md:text-base leading-[1.9] font-light flex-1 line-clamp-4 mb-8 pl-0.5">
                                                 {annonce.description}
                                             </p>
+                                        ) : (
+                                            <div className="flex-1 min-h-[4rem]" />
                                         )}
 
-                                        <div className="mt-auto pt-8 border-t border-black/10">
+                                        <div className="mt-auto pt-10 border-t border-white/[0.08]">
                                             {deleteId === annonce.id ? (
                                                 <div className="flex gap-2">
                                                     <button
@@ -609,18 +613,18 @@ const AdminDashboard = ({ onLogout }) => {
                                                     </button>
                                                 </div>
                                             ) : (
-                                                <div className="grid grid-cols-2 gap-4">
+                                                <div className="flex gap-4">
                                                     <button
                                                         onClick={() => { setEditAnnonce(annonce); setShowForm(true); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                                                        className="py-4 bg-black text-white text-xs font-black uppercase tracking-widest rounded-lg transition-all flex items-center justify-center gap-2 hover:bg-black/85"
+                                                        className="flex-1 py-5 bg-white/[0.06] hover:bg-white/10 text-white/70 text-xs font-black uppercase tracking-widest rounded-xl transition-all border border-white/[0.08] flex items-center justify-center gap-3"
                                                     >
                                                         <Pencil size={14} /> Modifier
                                                     </button>
                                                     <button
                                                         onClick={() => setDeleteId(annonce.id)}
-                                                        className="py-4 bg-white text-red-600 text-xs font-black uppercase tracking-widest rounded-lg transition-all border-2 border-red-500 flex items-center justify-center gap-2 hover:bg-red-50"
+                                                        className="px-8 py-5 bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-black uppercase tracking-widest rounded-xl transition-all border border-red-500/15"
                                                     >
-                                                        <Trash2 size={14} /> Supprimer
+                                                        <Trash2 size={14} />
                                                     </button>
                                                 </div>
                                             )}
