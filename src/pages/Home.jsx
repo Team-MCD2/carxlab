@@ -6,6 +6,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Reviews from '../components/Reviews';
 import FeatureCard from '../components/FeatureCard';
+import LabProtocol from '../components/LabProtocol';
 
 // Import Assets
 import heroImg from '../assets/Carxlab.png';
@@ -98,12 +99,12 @@ const Home = () => {
                                 CarXLab est votre partenaire de confiance pour l'<strong className="text-black font-semibold">achat et la revente de véhicules d'occasion</strong> et de prestige à Launaguet. À 15 minutes de Toulouse, nous sélectionnons les meilleures pépites automobiles en Haute-Garonne.
                             </p>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mb-16 md:mb-20">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 mb-16 md:mb-24">
                                 {[
-                                    { title: "Achat Cash", desc: "Reprise immédiate au meilleur prix du marché, sans démarche inutile.", icon: <Zap size={22} /> },
-                                    { title: "Stock Lab", desc: "Véhicules révisés sous protocole strict avant chaque mise en vente.", icon: <ShieldCheck size={22} /> },
-                                    { title: "Expertise 31", desc: "Service de proximité dédié aux passionnés et aux usages quotidiens.", icon: <MapPin size={22} /> },
-                                    { title: "Vente Flash", desc: "Vendez rapidement via notre réseau d'acheteurs qualifiés.", icon: <Search size={22} /> },
+                                    { title: "Achat Cash", desc: "Reprise immédiate au meilleur prix du marché, sans démarche inutile.", icon: <Zap size={22} strokeWidth={1.75} /> },
+                                    { title: "Stock Lab", desc: "Véhicules révisés sous protocole strict avant chaque mise en vente.", icon: <ShieldCheck size={22} strokeWidth={1.75} /> },
+                                    { title: "Expertise 31", desc: "Service de proximité dédié aux passionnés et aux usages quotidiens.", icon: <MapPin size={22} strokeWidth={1.75} /> },
+                                    { title: "Vente Flash", desc: "Vendez rapidement via notre réseau d'acheteurs qualifiés.", icon: <Search size={22} strokeWidth={1.75} /> },
                                 ].map((item, i) => (
                                     <FeatureCard key={i} index={i} {...item} />
                                 ))}
@@ -268,13 +269,17 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Protocole lab — section SOMBRE animée */}
+            <LabProtocol />
+
             {/* CTA — section CLAIRE */}
-            <section className="section-padding section-light relative flex items-center justify-center overflow-hidden">
+            <section className="section-padding section-light-blend relative flex items-center justify-center overflow-hidden pb-28 md:pb-36">
                 <div className="main-container text-center relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, margin: '-80px' }}
+                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                         className="flex flex-col items-center"
                     >
                         <h2 className="text-4xl md:text-7xl font-black mb-12 md:mb-16 uppercase leading-[1.05] tracking-tight text-black">
@@ -283,14 +288,32 @@ const Home = () => {
                         <p className="text-lg md:text-xl text-black/50 mb-16 md:mb-20 max-w-2xl mx-auto font-light leading-[1.85]">
                             Vendez votre véhicule au juste prix ou trouvez la perle rare parmi notre stock ultra-limité.
                         </p>
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full px-6">
+                        <motion.div
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.25, duration: 0.6 }}
+                            className="flex flex-col md:flex-row items-center justify-center gap-6 w-full px-6"
+                        >
                             <Link to="/contact" className="w-full md:w-auto">
-                                <button className="gold-button w-full px-12 py-5 text-xs">PRENDRE RENDEZ-VOUS</button>
+                                <motion.button
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    className="gold-button w-full px-12 py-5 text-xs"
+                                >
+                                    PRENDRE RENDEZ-VOUS
+                                </motion.button>
                             </Link>
                             <Link to="/stock" className="w-full md:w-auto">
-                                <button className="gold-button-outline w-full px-12 py-5 text-xs">CATALOGUE LIVE</button>
+                                <motion.button
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    className="gold-button-outline w-full px-12 py-5 text-xs !border-black/20 !text-black hover:!bg-black hover:!text-white"
+                                >
+                                    CATALOGUE LIVE
+                                </motion.button>
                             </Link>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 </div>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] bg-accent-gold/[0.06] blur-[200px] rounded-full pointer-events-none" />

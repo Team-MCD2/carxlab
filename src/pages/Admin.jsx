@@ -575,12 +575,12 @@ const AdminDashboard = ({ onLogout }) => {
                                         </div>
                                     </div>
 
-                                    <div className="p-10 md:p-12 lg:p-14 flex flex-col flex-1">
-                                        <h3 className="font-black text-2xl md:text-3xl uppercase tracking-tight mb-6">
+                                    <div className="p-10 md:p-12 lg:p-14 flex flex-col flex-1 min-h-[280px]">
+                                        <h3 className="font-black text-2xl md:text-3xl uppercase tracking-tight mb-6 pl-0.5">
                                             {annonce.marque}{' '}
                                             <span className="text-white/55 font-semibold">{annonce.modele}</span>
                                         </h3>
-                                        <div className="flex flex-wrap gap-3 mb-8">
+                                        <div className="flex flex-wrap gap-3 mb-8 pl-0.5">
                                             {[annonce.annee, annonce.km ? `${Number(annonce.km).toLocaleString('fr-FR')} km` : null, annonce.carburant]
                                                 .filter(Boolean).map((v, idx) => (
                                                     <span key={idx} className="text-[11px] tracking-widest uppercase text-white/50 bg-white/[0.06] px-3 py-2 rounded-lg border border-white/[0.06]">
@@ -588,13 +588,15 @@ const AdminDashboard = ({ onLogout }) => {
                                                     </span>
                                                 ))}
                                         </div>
-                                        {annonce.description && (
-                                            <p className="text-white/55 text-sm md:text-base leading-[1.85] font-light flex-1 line-clamp-5 mb-10">
+                                        {annonce.description ? (
+                                            <p className="text-white/60 text-sm md:text-base leading-[1.9] font-light flex-1 line-clamp-4 mb-8 pl-0.5">
                                                 {annonce.description}
                                             </p>
+                                        ) : (
+                                            <div className="flex-1 min-h-[4rem]" />
                                         )}
 
-                                        <div className="mt-auto pt-8 border-t border-white/[0.06]">
+                                        <div className="mt-auto pt-10 border-t border-white/[0.08]">
                                             {deleteId === annonce.id ? (
                                                 <div className="flex gap-2">
                                                     <button

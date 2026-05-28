@@ -1,7 +1,36 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import logo from '../assets/333carxlab.png';
+
+const contactCards = [
+    {
+        icon: MapPin,
+        label: 'Adresse',
+        content: (
+            <>
+                4 impasses du pont,
+                <br />
+                31140 Launaguet
+            </>
+        ),
+        href: 'https://www.google.com/maps/search/?api=1&query=4+impasse+du+pont+31140+Launaguet',
+        external: true,
+    },
+    {
+        icon: Phone,
+        label: 'Téléphone',
+        content: '06 59 33 03 12',
+        href: 'tel:0659330312',
+    },
+    {
+        icon: Mail,
+        label: 'E-mail',
+        content: 'Carxlab31@gmail.com',
+        href: 'mailto:Carxlab31@gmail.com',
+    },
+];
 
 const Footer = () => {
     const handleScrollToTop = () => {
@@ -9,88 +38,163 @@ const Footer = () => {
     };
 
     return (
-        <footer className="pt-24 md:pt-36 pb-16 md:pb-24 border-t border-white/[0.04] bg-[var(--bg-card)] relative overflow-hidden mt-auto">
-            {/* Background glow overlay */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-accent-gold/5 blur-[150px] pointer-events-none" />
+        <footer className="relative mt-20 md:mt-32 overflow-hidden">
+            {/* Transition douce depuis la section précédente */}
+            <div
+                className="h-20 md:h-32 w-full bg-gradient-to-b from-[#ebebeb] via-[#4a4a4a] to-[var(--bg-card)] pointer-events-none"
+                aria-hidden
+            />
 
-            <div className="main-container relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-20 lg:gap-28 mb-24 md:mb-36">
-                    {/* Brand Section */}
-                    <div className="md:col-span-12 lg:col-span-5 flex flex-col items-center md:items-start text-center md:text-left gap-8 md:gap-10">
-                        <Link to="/" onClick={handleScrollToTop} className="inline-block w-fit opacity-80 hover:opacity-100 transition-opacity">
-                            <img src={logo} alt="Carxlab" className="h-14 object-contain grayscale hover:grayscale-0 transition-all duration-500" />
-                        </Link>
-                        <p className="text-white/30 max-w-sm text-lg font-light leading-loose">
-                            Plus qu'un showroom, une expertise de précision. Bienvenue dans l'ère de l'automobile analytique.
-                        </p>
-                        <div className="flex gap-6 mt-4 justify-center md:justify-start">
-                            <a
-                                href="mailto:Carxlab31@gmail.com"
-                                className="w-16 h-16 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-white/30 hover:bg-accent-gold/10 hover:text-accent-gold hover:border-accent-gold/50 transition-all duration-300 transform hover:-translate-y-1"
+            <div className="bg-[var(--bg-card)] border-t border-white/[0.05] pt-20 md:pt-28 pb-16 md:pb-24 relative">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-accent-gold/5 blur-[150px] pointer-events-none" />
+
+                <div className="main-container relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 32 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-40px' }}
+                        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                        className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-20 lg:gap-24 mb-20 md:mb-28"
+                    >
+                        {/* Brand */}
+                        <div className="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left gap-8">
+                            <Link
+                                to="/"
+                                onClick={handleScrollToTop}
+                                className="inline-block w-fit opacity-85 hover:opacity-100 transition-opacity"
                             >
-                                <Mail size={24} />
-                            </a>
+                                <img
+                                    src={logo}
+                                    alt="Carxlab"
+                                    className="h-14 md:h-16 object-contain grayscale hover:grayscale-0 transition-all duration-500"
+                                />
+                            </Link>
+                            <p className="text-white/45 max-w-sm text-base md:text-lg font-light leading-[1.85]">
+                                Plus qu'un showroom, une expertise de précision. Bienvenue dans l'ère de l'automobile analytique.
+                            </p>
                         </div>
-                    </div>
 
-                    {/* Links - Services */}
-                    <div className="md:col-span-6 lg:col-span-3 lg:col-start-7 flex flex-col items-center md:items-start text-center md:text-left gap-10 md:gap-12">
-                        <h4 className="text-white font-black text-xs uppercase tracking-[0.4em] flex items-center justify-center md:justify-start gap-4 w-full">
-                            <span className="hidden md:block soft-divider w-10 shrink-0" />
-                            Services
-                        </h4>
-                        <ul className="space-y-6 md:space-y-8">
-                            {[
-                                { name: 'Expertise Lab', path: '/expertise' },
-                                { name: 'Achat Express', path: '/achat' },
-                                { name: 'Stock Réel', path: '/stock' },
-                                { name: 'Solutions Financement', path: '/contact' }
-                            ].map((item) => (
-                                <li key={item.name}>
-                                    <Link to={item.path} onClick={handleScrollToTop} className="text-white/30 hover:text-white transition-colors text-[15px] font-medium tracking-widest flex items-center justify-center md:justify-start gap-3 group">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-accent-gold/0 group-hover:bg-accent-gold transition-all duration-300"></span>
-                                        {item.name}
-                                    </Link>
-                                </li>
+                        {/* Services */}
+                        <div className="md:col-span-6 lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left gap-8">
+                            <h4 className="text-white font-black text-xs uppercase tracking-[0.35em] flex items-center justify-center md:justify-start gap-4 w-full">
+                                <span className="hidden md:block soft-divider w-10 shrink-0" />
+                                Services
+                            </h4>
+                            <ul className="space-y-5 md:space-y-6 w-full">
+                                {[
+                                    { name: 'Expertise Lab', path: '/expertise' },
+                                    { name: 'Achat Express', path: '/achat' },
+                                    { name: 'Stock Réel', path: '/stock' },
+                                    { name: 'Solutions Financement', path: '/contact' },
+                                ].map((linkItem, i) => (
+                                    <motion.li
+                                        key={linkItem.name}
+                                        initial={{ opacity: 0, x: -12 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.06, duration: 0.4 }}
+                                    >
+                                        <Link
+                                            to={linkItem.path}
+                                            onClick={handleScrollToTop}
+                                            className="text-white/40 hover:text-white transition-colors text-[15px] font-medium tracking-wide flex items-center justify-center md:justify-start gap-3 group py-1"
+                                        >
+                                            <span className="w-1.5 h-1.5 rounded-full bg-accent-gold/0 group-hover:bg-accent-gold transition-all duration-300" />
+                                            {linkItem.name}
+                                        </Link>
+                                    </motion.li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Contact — cartes larges */}
+                        <div className="md:col-span-12 lg:col-span-5 flex flex-col items-center md:items-stretch text-center md:text-left gap-8">
+                            <h4 className="text-white font-black text-xs uppercase tracking-[0.35em] flex items-center justify-center md:justify-start gap-4 w-full">
+                                <span className="hidden md:block soft-divider w-10 shrink-0" />
+                                Contact
+                            </h4>
+                            <ul className="flex flex-col gap-5 w-full">
+                                {contactCards.map((card, i) => {
+                                    const Icon = card.icon;
+                                    const inner = (
+                                        <>
+                                            <div className="w-14 h-14 rounded-2xl bg-accent-gold/10 border border-accent-gold/15 flex items-center justify-center text-accent-gold shrink-0 group-hover:bg-accent-gold group-hover:text-black transition-all duration-400">
+                                                <Icon size={24} />
+                                            </div>
+                                            <div className="flex-1 min-w-0 text-left">
+                                                <span className="block text-[10px] uppercase tracking-[0.3em] text-accent-gold/80 font-black mb-2">
+                                                    {card.label}
+                                                </span>
+                                                <span className="text-white/65 text-base md:text-[17px] leading-relaxed font-light group-hover:text-white transition-colors">
+                                                    {card.content}
+                                                </span>
+                                            </div>
+                                        </>
+                                    );
+                                    return (
+                                        <motion.li
+                                            key={card.label}
+                                            initial={{ opacity: 0, y: 16 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: i * 0.08, duration: 0.5 }}
+                                            whileHover={{ scale: 1.01 }}
+                                        >
+                                            {card.href ? (
+                                                <a
+                                                    href={card.href}
+                                                    target={card.external ? '_blank' : undefined}
+                                                    rel={card.external ? 'noopener noreferrer' : undefined}
+                                                    className="group flex items-center gap-6 md:gap-8 w-full p-8 md:p-10 rounded-2xl bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.07] hover:border-accent-gold/20 transition-all duration-300"
+                                                >
+                                                    {inner}
+                                                </a>
+                                            ) : (
+                                                <div className="group flex items-center gap-6 md:gap-8 w-full p-8 md:p-10 rounded-2xl bg-white/[0.04] border border-white/[0.08]">
+                                                    {inner}
+                                                </div>
+                                            )}
+                                        </motion.li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    </motion.div>
+
+                    {/* Bottom bar */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2, duration: 0.6 }}
+                        className="pt-14 md:pt-16 border-t border-white/[0.06] flex flex-col lg:flex-row justify-between items-center gap-8 md:gap-10"
+                    >
+                        <p className="text-[10px] md:text-xs uppercase tracking-[0.22em] font-medium text-white/40 text-center lg:text-left leading-loose">
+                            © {new Date().getFullYear()} CARXLAB. ALL RIGHTS RESERVED.
+                            <br className="lg:hidden" />
+                            <span className="text-accent-gold mx-2 md:mx-4">LAB PROTOCOL VERIFIED.</span>
+                            <a
+                                href="https://microdidact.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-white transition-colors duration-300"
+                            >
+                                RÉALISÉ PAR <span className="font-black">MICRODIDACT</span>
+                            </a>
+                        </p>
+                        <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+                            {['Mentions Légales', 'Confidentialité', 'CGV'].map((label) => (
+                                <Link
+                                    key={label}
+                                    to="/mentions-legales"
+                                    onClick={handleScrollToTop}
+                                    className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white/35 hover:text-accent-gold transition-colors font-medium"
+                                >
+                                    {label}
+                                </Link>
                             ))}
-                        </ul>
-                    </div>
-
-                    {/* Links - Contact */}
-                    <div className="md:col-span-6 lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left gap-10 md:gap-12">
-                        <h4 className="text-white font-black text-xs uppercase tracking-[0.4em] flex items-center justify-center md:justify-start gap-4 w-full">
-                            <span className="hidden md:block soft-divider w-10 shrink-0" />
-                            Contact
-                        </h4>
-                        <ul className="space-y-5 md:space-y-6 w-full max-w-sm">
-                            <li className="flex items-start gap-5 p-7 md:p-8 rounded-2xl border border-white/[0.06] bg-white/[0.03] group hover:border-accent-gold/15 transition-all duration-300">
-                                <MapPin size={22} className="text-accent-gold shrink-0 mt-1" />
-                                <span className="text-white/50 text-[15px] leading-relaxed font-light">4 impasses du pont,<br />31140 Launaguet</span>
-                            </li>
-                            <li className="flex items-center gap-5 p-7 md:p-8 rounded-2xl border border-white/[0.06] bg-white/[0.03] group hover:border-accent-gold/15 transition-all duration-300">
-                                <Phone size={22} className="text-accent-gold shrink-0" />
-                                <span className="text-white/50 text-[15px] font-light tracking-wide">
-                                    <a href="tel:0659330312" className="hover:text-accent-gold transition-colors">06 59 33 03 12</a>
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="pt-12 md:pt-14 border-t border-white/[0.06] flex flex-col lg:flex-row justify-between items-center gap-8 md:gap-10">
-                    <p className="text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium text-white/35 text-center lg:text-left leading-loose">
-                        © {new Date().getFullYear()} CARXLAB. ALL RIGHTS RESERVED.<br className="lg:hidden" />
-                        <span className="text-accent-gold mr-4">LAB PROTOCOL VERIFIED.</span>
-                        <a href="https://microdidact.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">
-                            RÉALISÉ PAR <span className="font-black">MICRODIDACT</span>
-                        </a>
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-6 md:gap-10">
-                        <Link to="/mentions-legales" onClick={handleScrollToTop} className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/30 hover:text-accent-gold transition-colors font-medium">Mentions Légales</Link>
-                        <Link to="/mentions-legales" onClick={handleScrollToTop} className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/30 hover:text-accent-gold transition-colors font-medium">Confidentialité</Link>
-                        <Link to="/mentions-legales" onClick={handleScrollToTop} className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/30 hover:text-accent-gold transition-colors font-medium">CGV</Link>
-                    </div>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </footer>
