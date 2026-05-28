@@ -7,6 +7,7 @@ import {
 import { uploadToCloudinary } from '../services/cloudinary';
 import { processCarImage } from '../services/imageProcessor';
 import CarxlabBg from '../assets/Carxlab.png';
+import SafeImage from '../components/SafeImage';
 
 const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'admin123';
 const MARQUES = ['Porsche', 'Ferrari', 'Lamborghini', 'McLaren', 'Bentley', 'Rolls-Royce',
@@ -49,23 +50,21 @@ const Login = ({ onLogin }) => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className={`w-full max-w-md mx-4 ${shake ? 'animate-shake' : ''}`}
+                className={`w-full max-w-md mx-6 md:mx-8 ${shake ? 'animate-shake' : ''}`}
             >
-                <div className="glass-panel border border-white/5 rounded-2xl p-6 md:p-10">
-                    <div className="flex-center-col mb-10">
-                        <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 border border-accent-gold/30 flex-center mb-6">
+                <div className="glass-panel border border-white/[0.06] p-10 md:p-14 lg:p-16">
+                    <div className="flex-center-col mb-12">
+                        <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 border border-accent-gold/20 flex-center mb-8">
                             <Lock size={26} className="text-accent-gold" />
                         </div>
-                        <div className="flex items-center gap-3 mb-2">
-                            <span className="h-[1px] w-8 bg-accent-gold/30" />
-                            <span className="text-accent-gold text-[10px] tracking-[0.4em] uppercase font-bold">Accès Sécurisé</span>
-                            <span className="h-[1px] w-8 bg-accent-gold/30" />
+                        <div className="section-label mb-4 max-w-xs">
+                            <span className="text-accent-gold text-[10px] tracking-[0.35em] uppercase font-bold">Accès Sécurisé</span>
                         </div>
-                        <h1 className="text-3xl font-black uppercase tracking-tight mt-1">Admin Panel</h1>
-                        <p className="text-white/30 text-sm mt-2 font-light">CarXLab — Gestion du stock</p>
+                        <h1 className="text-3xl font-black uppercase tracking-tight mt-2">Admin Panel</h1>
+                        <p className="text-white/40 text-sm mt-3 font-light">CarXLab — Gestion du stock</p>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-5">
+                    <form onSubmit={handleSubmit} className="space-y-8">
                         <div className="space-y-2">
                             <label className="text-[10px] tracking-[0.4em] uppercase font-bold text-accent-gold">Mot de passe</label>
                             <div className="relative">
@@ -75,7 +74,7 @@ const Login = ({ onLogin }) => {
                                     onChange={(e) => setPassword(e.target.value)}
                                     autoFocus
                                     placeholder="••••••••••"
-                                    className={`w-full bg-white/5 border ${error ? 'border-red-500/50' : 'border-white/10'} p-4 pr-12 rounded-xl focus:border-accent-gold outline-none text-white/80 transition-all`}
+                                    className={`w-full bg-white/5 border ${error ? 'border-red-500/50' : 'border-white/[0.08]'} px-5 py-4 pr-12 rounded-xl focus:border-accent-gold/50 outline-none text-white/80 transition-all`}
                                 />
                                 <button
                                     type="button"
@@ -231,8 +230,8 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
     return (
         <form onSubmit={handleSubmit} className="space-y-20">
             <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
-                <div className="glass-panel p-8 md:p-10 rounded-3xl border border-white/5 relative overflow-hidden group">
-                    <div className="absolute top-0 left-0 w-20 h-[2px] bg-accent-gold" />
+                <div className="card-soft p-8 md:p-10 relative overflow-hidden group">
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-accent-gold/30 via-accent-gold/10 to-transparent" />
                     <div className="flex items-center gap-4 mb-8">
                         <div className="w-10 h-10 rounded-xl bg-accent-gold/10 border border-accent-gold/20 flex-center">
                             <Car size={18} className="text-accent-gold" />
@@ -283,8 +282,8 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
                     </div>
                 </div>
 
-                <div className="glass-panel p-8 md:p-10 rounded-3xl border border-white/5 relative overflow-hidden group">
-                    <div className="absolute top-0 left-0 w-20 h-[2px] bg-white/20" />
+                <div className="card-soft p-8 md:p-10 relative overflow-hidden group">
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-white/15 via-white/5 to-transparent" />
                     <div className="flex items-center gap-4 mb-8">
                         <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex-center">
                             <div className="w-4 h-4 border-2 border-white/20 rounded-sm" />
@@ -326,10 +325,9 @@ const AnnonceForm = ({ onSuccess, onCancel, editData = null }) => {
                 </div>
             </div>
 
-            <div className="glass-panel p-10 md:p-16 rounded-[2.5rem] border border-white/5 relative bg-white/[0.01]">
-                <div className="flex items-center gap-6 mb-16">
-                    <span className="h-[2px] w-12 bg-accent-gold" />
-                    <h2 className="text-lg font-black uppercase tracking-[0.4em]">Spécifications</h2>
+            <div className="glass-panel p-10 md:p-14 lg:p-16 relative bg-white/[0.01]">
+                <div className="section-label mb-14 max-w-xs">
+                    <h2 className="text-lg font-black uppercase tracking-[0.3em]">Spécifications</h2>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
@@ -448,8 +446,8 @@ const AdminDashboard = ({ onLogout }) => {
             <div className="absolute inset-0 lab-grid opacity-20 pointer-events-none" />
             <div className="scan-overlay" />
 
-            <header className="sticky top-0 z-[60] border-b border-white/5 bg-black/80 backdrop-blur-3xl">
-                <div className="main-container py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <header className="sticky top-0 z-[60] border-b border-white/[0.05] bg-black/85 backdrop-blur-3xl">
+                <div className="main-container py-5 md:py-6 flex flex-col sm:flex-row items-center justify-between gap-5">
                     <div className="flex items-center gap-3 w-full sm:w-auto">
                         <div className="w-10 h-10 rounded-xl bg-accent-gold/10 border border-accent-gold/20 flex-center">
                             <Car size={18} className="text-accent-gold" />
@@ -477,15 +475,15 @@ const AdminDashboard = ({ onLogout }) => {
                 </div>
             </header>
 
-            <div className="main-container py-20">
-                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 mb-20">
+            <div className="main-container py-16 md:py-24">
+                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 mb-16 md:mb-24">
                     <div>
                         <h1 className="text-4xl md:text-6xl lg:text-8xl font-black uppercase tracking-tight leading-[1.1]">
                             <span className="text-white">Gestion du</span> <br />
                             <span className="gold-gradient">Stock Live</span>
                         </h1>
-                        <p className="text-white/20 text-[10px] md:text-xs font-bold mt-10 tracking-[0.4em] uppercase italic flex items-center gap-4">
-                            <span className="h-px w-12 bg-accent-gold/20" />
+                        <p className="text-white/30 text-[10px] md:text-xs font-bold mt-10 tracking-[0.35em] uppercase flex items-center gap-4">
+                            <span className="soft-divider w-12 opacity-50" />
                             Protocole de mise en ligne sécurisé
                         </p>
                     </div>
@@ -515,10 +513,9 @@ const AdminDashboard = ({ onLogout }) => {
                             exit={{ opacity: 0, height: 0 }}
                             className="mb-20 overflow-hidden"
                         >
-                            <div className="glass-panel border border-accent-gold/15 rounded-3xl p-10 md:p-16">
-                                <div className="flex items-center gap-4 mb-12">
-                                    <span className="h-[2px] w-10 bg-accent-gold" />
-                                    <h2 className="text-base font-black uppercase tracking-[0.3em]">{editAnnonce ? "Modifier l'Annonce" : "Nouvelle Annonce"}</h2>
+                            <div className="glass-panel border border-accent-gold/10 p-10 md:p-14 lg:p-16">
+                                <div className="section-label mb-12 max-w-sm">
+                                    <h2 className="text-base font-black uppercase tracking-[0.25em]">{editAnnonce ? "Modifier l'Annonce" : "Nouvelle Annonce"}</h2>
                                 </div>
                                 <AnnonceForm 
                                     onSuccess={() => { setEditAnnonce(null); handleSuccess(); }} 
@@ -531,9 +528,9 @@ const AdminDashboard = ({ onLogout }) => {
                 </AnimatePresence>
 
                 <div>
-                    <div className="flex items-center gap-6 mb-12">
-                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">Annonces Publiées</span>
-                        <div className="flex-1 h-[1px] bg-white/5" />
+                    <div className="flex items-center gap-6 mb-14">
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/45">Annonces Publiées</span>
+                        <div className="flex-1 soft-divider opacity-40" />
                     </div>
 
                     {loading ? (
@@ -556,13 +553,13 @@ const AdminDashboard = ({ onLogout }) => {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="group glass-panel border border-white/5 hover:border-white/10 rounded-2xl overflow-hidden transition-all"
+                                    className="group card-soft overflow-hidden transition-all"
                                 >
-                                    <div className="relative aspect-[16/10] overflow-hidden bg-white/3">
-                                        <img
+                                    <div className="relative aspect-[16/10] overflow-hidden bg-white/[0.02] rounded-t-[var(--radius-card)]">
+                                        <SafeImage
                                             src={annonce.url}
                                             alt={`${annonce.marque} ${annonce.modele}`}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                                         <span className="absolute bottom-3 left-3 text-accent-gold font-black text-lg">
@@ -578,8 +575,8 @@ const AdminDashboard = ({ onLogout }) => {
                                         </div>
                                     </div>
 
-                                    <div className="p-10">
-                                        <h3 className="font-black text-2xl uppercase tracking-tight mb-6">
+                                    <div className="p-8 md:p-10">
+                                        <h3 className="font-black text-xl md:text-2xl uppercase tracking-tight mb-5">
                                             {annonce.marque} <span className="text-white/60 font-semibold">{annonce.modele}</span>
                                         </h3>
                                         <div className="flex flex-wrap gap-2 mt-3">

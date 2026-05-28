@@ -45,10 +45,8 @@ const Home = () => {
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         className="max-w-6xl w-full px-4"
                     >
-                        <div className="flex-center gap-3 md:gap-6 mb-8 md:mb-12 w-full">
-                            <span className="h-[1px] w-8 md:w-32 bg-accent-gold shadow-[0_0_15px_rgba(212,175,55,0.4)]"></span>
-                            <span className="text-accent-gold tracking-[0.2em] md:tracking-[0.6em] font-black text-[8px] md:text-sm uppercase italic">Prototype V4 // Lab</span>
-                            <span className="h-[1px] w-8 md:w-32 bg-accent-gold shadow-[0_0_15px_rgba(212,175,55,0.4)]"></span>
+                        <div className="section-label mb-10 md:mb-14 w-full max-w-md mx-auto">
+                            <span className="text-accent-gold tracking-[0.25em] md:tracking-[0.5em] font-black text-[9px] md:text-sm uppercase">Prototype V4 // Lab</span>
                         </div>
 
                         <h1 className="hero-title mb-16 md:mb-20 flex flex-col items-center gap-4 md:gap-0">
@@ -75,7 +73,7 @@ const Home = () => {
             </section>
 
             {/* SEO Presentation Section: Achat Revente Toulouse */}
-            <section className="section-padding bg-black relative overflow-hidden">
+            <section className="section-padding section-elevated relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full lab-grid opacity-10 pointer-events-none" />
                 <div className="main-container relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 md:gap-32 xl:gap-48 items-center">
@@ -124,20 +122,15 @@ const Home = () => {
                                 ].map((item, i) => (
                                     <div
                                         key={i}
-                                        className="flex flex-col items-center lg:items-start text-center lg:text-left gap-6 p-10 md:p-14 glass-panel border border-white/5 hover:border-accent-gold/40 transition-all group relative overflow-hidden"
+                                        className="card-soft flex flex-col items-center lg:items-start text-center lg:text-left gap-8 p-10 md:p-12 lg:p-14 group"
                                     >
-                                        <div className="absolute top-0 right-0 w-12 h-12 border-r border-t border-accent-gold/0 group-hover:border-accent-gold/40 transition-all duration-500" />
-                                        <div className="absolute bottom-0 left-0 w-12 h-12 border-l border-b border-accent-gold/0 group-hover:border-accent-gold/40 transition-all duration-500" />
-
-                                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-accent-gold/5 flex items-center justify-center text-accent-gold group-hover:bg-accent-gold group-hover:text-black transition-all duration-500">
+                                        <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold group-hover:bg-accent-gold group-hover:text-black transition-all duration-500">
                                             {item.icon}
                                         </div>
-                                        <div>
-                                            <h4 className="text-xs md:text-sm font-black uppercase tracking-[0.2em] text-white mb-3 group-hover:text-accent-gold transition-colors">{item.title}</h4>
-                                            <p className="text-[9px] md:text-[11px] text-white/40 leading-relaxed font-medium uppercase tracking-wider">{item.desc}</p>
+                                        <div className="space-y-3">
+                                            <h4 className="text-sm font-black uppercase tracking-[0.15em] text-white group-hover:text-accent-gold transition-colors">{item.title}</h4>
+                                            <p className="text-xs text-white/45 leading-relaxed font-medium">{item.desc}</p>
                                         </div>
-
-                                        <div className="absolute top-4 left-4 text-[7px] font-mono text-white/5 group-hover:text-accent-gold/20">0{i + 1} // DATA_NODE</div>
                                     </div>
                                 ))}
                             </div>
@@ -159,29 +152,24 @@ const Home = () => {
                             transition={{ duration: 1 }}
                             className="relative lg:block"
                         >
-                            <div className="relative aspect-[4/5] glass-panel rounded-[3rem] overflow-hidden border border-white/5 shadow-2xl">
-                                <div className="absolute inset-0 lab-grid opacity-20" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10" />
+                            <div className="relative aspect-[4/5] glass-panel overflow-hidden shadow-2xl">
+                                <div className="absolute inset-0 lab-grid opacity-10" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10" />
 
-                                {/* Background Image placeholder - Using the hero image but stylized */}
                                 <img
                                     src={heroImg}
-                                    className="w-full h-full object-cover opacity-60 grayscale scale-110 group-hover:scale-100 transition-all duration-1000"
+                                    className="w-full h-full object-cover opacity-55 grayscale scale-105 hover:scale-100 transition-all duration-1000"
                                     alt="CarXLab Toulouse Garage"
                                 />
 
-                                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-10 z-20">
-                                    <div className="w-24 h-24 mb-8 rounded-2xl bg-accent-gold/10 border border-accent-gold/20 flex items-center justify-center animate-pulse">
-                                        <MapPin size={48} className="text-accent-gold" />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-12 md:p-16 z-20">
+                                    <div className="w-20 h-20 md:w-24 md:h-24 mb-10 rounded-2xl bg-accent-gold/10 border border-accent-gold/15 flex items-center justify-center">
+                                        <MapPin size={40} className="text-accent-gold" />
                                     </div>
-                                    <h3 className="text-4xl font-black uppercase tracking-widest mb-4">LAUNAGUET</h3>
-                                    <div className="h-[2px] w-32 bg-accent-gold/50 mb-4" />
-                                    <p className="text-white/40 text-sm font-bold tracking-[0.4em] uppercase">Secteur Toulouse (31)</p>
+                                    <h3 className="text-3xl md:text-4xl font-black uppercase tracking-widest mb-6">LAUNAGUET</h3>
+                                    <div className="soft-divider w-24 mb-6" />
+                                    <p className="text-white/50 text-sm font-semibold tracking-[0.3em] uppercase">Secteur Toulouse (31)</p>
                                 </div>
-
-                                {/* Coordinate markers */}
-                                <div className="absolute top-10 left-10 text-[10px] text-accent-gold font-black tracking-[0.3em]">SITE OFFICE ID: 31000</div>
-                                <div className="absolute bottom-10 right-10 text-[10px] text-accent-gold font-black tracking-[0.3em]">SECURE TRADE ZONE</div>
                             </div>
                         </motion.div>
                     </div>
@@ -192,36 +180,34 @@ const Home = () => {
             <Reviews />
 
             {/* Find Us Section */}
-            <section className="section-padding bg-black/50 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-gold/5 blur-[150px] rounded-full pointer-events-none" />
+            <section className="section-padding section-light relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-gold/[0.06] blur-[150px] rounded-full pointer-events-none" />
                 <div className="main-container relative z-10">
-                    <div className="flex flex-col md:flex-row items-center gap-32 xl:gap-48">
+                    <div className="flex flex-col md:flex-row items-center gap-20 md:gap-24 xl:gap-32">
                         <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-                            <div className="flex items-center justify-center md:justify-start gap-6 mb-12 w-full">
-                                <span className="h-[2px] w-8 md:w-20 bg-accent-gold md:hidden"></span>
-                                <span className="text-accent-gold tracking-[0.4em] font-black text-xs uppercase">Localisation</span>
-                                <span className="h-[2px] w-20 bg-accent-gold"></span>
+                            <div className="section-label section-label-light mb-10 w-full md:justify-start">
+                                <span className="text-accent-gold tracking-[0.35em] font-black text-xs uppercase">Localisation</span>
                             </div>
-                            <h2 className="text-4xl md:text-8xl font-black mb-20 uppercase tracking-tight leading-[1.1]">
-                                OÙ NOUS <br /><span className="gold-gradient">TROUVER</span>
+                            <h2 className="text-4xl md:text-7xl font-black mb-16 md:mb-20 uppercase tracking-tight leading-[1.1] text-black">
+                                OÙ NOUS <br /><span className="text-accent-gold">TROUVER</span>
                             </h2>
-                            <div className="space-y-16 w-full flex flex-col items-center md:items-start">
-                                <div className="flex flex-col md:flex-row items-center md:items-start gap-6 group">
-                                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-gold group-hover:bg-accent-gold group-hover:text-black transition-all duration-500 shrink-0 mx-auto md:mx-0">
+                            <div className="space-y-8 w-full flex flex-col items-center md:items-stretch max-w-md md:max-w-none">
+                                <div className="card-light flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10 group">
+                                    <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold shrink-0">
                                         <MapPin size={28} />
                                     </div>
                                     <div className="text-center md:text-left">
-                                        <h4 className="text-white font-black uppercase tracking-widest mb-2">Le Laboratoire</h4>
-                                        <p className="text-white/40 text-lg font-light leading-relaxed">4 impasses du pont<br />31140 Launaguet, France</p>
+                                        <h4 className="text-black font-black uppercase tracking-widest mb-3">Le Laboratoire</h4>
+                                        <p className="text-black/50 text-base md:text-lg font-light leading-relaxed">4 impasses du pont<br />31140 Launaguet, France</p>
                                     </div>
                                 </div>
-                                <div className="flex flex-col md:flex-row items-center md:items-start gap-6 group">
-                                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-gold group-hover:bg-accent-gold group-hover:text-black transition-all duration-500 shrink-0 mx-auto md:mx-0">
+                                <div className="card-light flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10 group">
+                                    <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold shrink-0">
                                         <Phone size={28} />
                                     </div>
                                     <div className="text-center md:text-left">
-                                        <h4 className="text-white font-black uppercase tracking-widest mb-2">Ligne Directe</h4>
-                                        <p className="text-white/40 text-lg font-light leading-relaxed">
+                                        <h4 className="text-black font-black uppercase tracking-widest mb-3">Ligne Directe</h4>
+                                        <p className="text-black/50 text-base md:text-lg font-light leading-relaxed">
                                             <a href="tel:0659330312" className="hover:text-accent-gold transition-colors">06 59 33 03 12</a><br />Expertise & Stock
                                         </p>
                                     </div>
@@ -240,7 +226,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="w-full md:w-1/2">
-                            <div className="relative aspect-video md:aspect-square glass-panel rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/5 group">
+                            <div className="relative aspect-video md:aspect-square card-light overflow-hidden group p-1">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.67!2d1.46!3d43.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb1!2s4+Imp.+du+Pont%2C+31140+Launaguet!5e0!3m2!1sfr!2sfr!4v1"
                                     width="100%"
@@ -258,20 +244,20 @@ const Home = () => {
             </section>
 
             {/* SEO Content Section */}
-            <section className="section-padding bg-black relative overflow-hidden flex justify-center">
+            <section className="section-padding section-elevated relative overflow-hidden flex justify-center">
                 <div className="main-container relative z-10 flex flex-col items-center w-full">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="w-full max-w-4xl text-center glass-panel p-8 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-white/5 shadow-2xl"
+                        className="w-full max-w-4xl text-center glass-panel p-10 md:p-16 lg:p-20 shadow-2xl"
                     >
-                        <h2 className="text-3xl md:text-5xl font-black mb-12 md:mb-16 uppercase tracking-tighter leading-tight gold-gradient">
+                        <h2 className="text-3xl md:text-5xl font-black mb-14 md:mb-20 uppercase tracking-tighter leading-tight gold-gradient px-2">
                             VÉHICULES D'OCCASION À TOULOUSE - LAUNAGUET
                         </h2>
-                        <div className="flex flex-col gap-10 text-white/40 text-base md:text-xl font-light leading-relaxed text-center">
+                        <div className="flex flex-col gap-12 md:gap-14 text-white/50 text-base md:text-lg font-light leading-[1.9] text-center px-2 md:px-6">
                             <p>
-                                Bienvenue chez <strong className="text-white">CarXLab</strong>, votre garage spécialisé dans la vente de voitures d'occasion premium. Notre laboratoire automobile est stratégiquement situé à Launaguet, à quelques minutes de <strong className="text-white">Toulouse</strong>, Blagnac, et l'Union. Nous sélectionnons rigoureusement chaque véhicule pour vous offrir une qualité irréprochable en Haute-Garonne.
+                                Bienvenue chez <strong className="text-white/90">CarXLab</strong>, votre garage spécialisé dans la vente de voitures d'occasion premium. Notre laboratoire automobile est stratégiquement situé à Launaguet, à quelques minutes de <strong className="text-white/90">Toulouse</strong>, Blagnac, et l'Union. Nous sélectionnons rigoureusement chaque véhicule pour vous offrir une qualité irréprochable en Haute-Garonne.
                             </p>
                             <p>
                                 Que vous recherchiez une berline de luxe, un SUV familial ou une sportive d'exception, notre catalogue live est mis à jour quotidiennement. Chaque annonce détaille précisément l'historique du véhicule, son kilométrage certifié et ses options exclusives. Nos services s'étendent à tout le secteur de Toulouse métropole, incluant Aucamville, Saint-Alban et Castelginest.
@@ -281,19 +267,18 @@ const Home = () => {
                             </p>
                         </div>
 
-                        {/* Lab architectural detail */}
-                        <div className="mt-12 pt-12 border-t border-white/5 flex justify-center items-center gap-4">
-                            <span className="h-[1px] w-8 bg-accent-gold/30"></span>
-                            <span className="text-[10px] text-accent-gold font-black tracking-[0.4em] uppercase">Expertise Automobile Lab</span>
-                            <span className="h-[1px] w-8 bg-accent-gold/30"></span>
+                        <div className="mt-16 pt-14 border-t border-white/[0.06]">
+                            <div className="section-label max-w-xs mx-auto">
+                                <span className="text-[10px] text-accent-gold/80 font-black tracking-[0.35em] uppercase">Expertise Automobile Lab</span>
+                            </div>
                         </div>
                     </motion.div>
                 </div>
-                <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-accent-gold/5 blur-[120px] rounded-full pointer-events-none" />
+                <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-accent-gold/[0.04] blur-[120px] rounded-full pointer-events-none" />
             </section>
 
             {/* CTA Section */}
-            <section className="section-padding bg-black relative flex items-center justify-center overflow-hidden">
+            <section className="section-padding section-dark relative flex items-center justify-center overflow-hidden">
                 <div className="main-container text-center relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}

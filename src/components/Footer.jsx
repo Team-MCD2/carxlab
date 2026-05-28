@@ -9,12 +9,12 @@ const Footer = () => {
     };
 
     return (
-        <footer className="pt-32 md:pt-48 pb-12 md:pb-20 border-t border-white/5 bg-[#111111] relative overflow-hidden mt-auto">
+        <footer className="pt-24 md:pt-36 pb-16 md:pb-24 border-t border-white/[0.04] bg-[var(--bg-card)] relative overflow-hidden mt-auto">
             {/* Background glow overlay */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-accent-gold/5 blur-[150px] pointer-events-none" />
 
             <div className="main-container relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-20 md:gap-16 lg:gap-24 mb-20 md:mb-32">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-20 lg:gap-28 mb-24 md:mb-36">
                     {/* Brand Section */}
                     <div className="md:col-span-12 lg:col-span-5 flex flex-col items-center md:items-start text-center md:text-left gap-8 md:gap-10">
                         <Link to="/" onClick={handleScrollToTop} className="inline-block w-fit opacity-80 hover:opacity-100 transition-opacity">
@@ -35,8 +35,8 @@ const Footer = () => {
 
                     {/* Links - Services */}
                     <div className="md:col-span-6 lg:col-span-3 lg:col-start-7 flex flex-col items-center md:items-start text-center md:text-left gap-10 md:gap-12">
-                        <h4 className="text-white font-black text-xs uppercase tracking-[0.5em] flex items-center justify-center md:justify-start gap-4 w-full">
-                            <span className="hidden md:block w-6 h-[1px] bg-accent-gold"></span>
+                        <h4 className="text-white font-black text-xs uppercase tracking-[0.4em] flex items-center justify-center md:justify-start gap-4 w-full">
+                            <span className="hidden md:block soft-divider w-10 shrink-0" />
                             Services
                         </h4>
                         <ul className="space-y-6 md:space-y-8">
@@ -58,18 +58,18 @@ const Footer = () => {
 
                     {/* Links - Contact */}
                     <div className="md:col-span-6 lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left gap-10 md:gap-12">
-                        <h4 className="text-white font-black text-xs uppercase tracking-[0.5em] flex items-center justify-center md:justify-start gap-4 w-full">
-                            <span className="hidden md:block w-6 h-[1px] bg-accent-gold"></span>
+                        <h4 className="text-white font-black text-xs uppercase tracking-[0.4em] flex items-center justify-center md:justify-start gap-4 w-full">
+                            <span className="hidden md:block soft-divider w-10 shrink-0" />
                             Contact
                         </h4>
-                        <ul className="space-y-6 md:space-y-8 w-full max-w-sm">
-                            <li className="flex items-start gap-6 p-6 rounded-2xl border border-white/5 bg-white/[0.02] group hover:border-white/10 transition-all">
+                        <ul className="space-y-5 md:space-y-6 w-full max-w-sm">
+                            <li className="flex items-start gap-5 p-7 md:p-8 rounded-2xl border border-white/[0.06] bg-white/[0.03] group hover:border-accent-gold/15 transition-all duration-300">
                                 <MapPin size={22} className="text-accent-gold shrink-0 mt-1" />
-                                <span className="text-white/40 text-[15px] leading-loose font-light">4 impasses du pont,<br />31140 Launaguet</span>
+                                <span className="text-white/50 text-[15px] leading-relaxed font-light">4 impasses du pont,<br />31140 Launaguet</span>
                             </li>
-                            <li className="flex items-center gap-6 p-6 rounded-2xl border border-white/5 bg-white/[0.02] group hover:border-white/10 transition-all">
+                            <li className="flex items-center gap-5 p-7 md:p-8 rounded-2xl border border-white/[0.06] bg-white/[0.03] group hover:border-accent-gold/15 transition-all duration-300">
                                 <Phone size={22} className="text-accent-gold shrink-0" />
-                                <span className="text-white/40 text-[15px] font-light tracking-widest">
+                                <span className="text-white/50 text-[15px] font-light tracking-wide">
                                     <a href="tel:0659330312" className="hover:text-accent-gold transition-colors">06 59 33 03 12</a>
                                 </span>
                             </li>
@@ -78,8 +78,8 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 md:pt-10 border-t border-white/10 flex flex-col lg:flex-row justify-between items-center gap-6 md:gap-8">
-                    <p className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-white/30 text-center lg:text-left leading-relaxed">
+                <div className="pt-12 md:pt-14 border-t border-white/[0.06] flex flex-col lg:flex-row justify-between items-center gap-8 md:gap-10">
+                    <p className="text-[10px] md:text-xs uppercase tracking-[0.25em] font-medium text-white/35 text-center lg:text-left leading-loose">
                         © {new Date().getFullYear()} CARXLAB. ALL RIGHTS RESERVED.<br className="lg:hidden" />
                         <span className="text-accent-gold mr-4">LAB PROTOCOL VERIFIED.</span>
                         <a href="https://microdidact.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">

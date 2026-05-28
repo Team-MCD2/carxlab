@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SafeImage from './SafeImage';
 
 const formatPrix = (prix) =>
     Number(prix).toLocaleString('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
@@ -21,19 +22,12 @@ const AnnonceCard = ({ annonce, index = 0 }) => {
         >
             {/* Image Wrapper - Large & Clean */}
             <Link to={`/stock/${encodeURIComponent(annonce.id)}`} className="block">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[3rem] bg-white/[0.02] border border-white/5 transition-all duration-700 group-hover:scale-[1.02] group-hover:shadow-[0_40px_100px_rgba(0,0,0,0.6)]">
-                    {url ? (
-                        <img
-                            src={url}
-                            alt={`${marque} ${modele}`}
-                            className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
-                            loading="lazy"
-                        />
-                    ) : (
-                        <div className="w-full h-full flex items-center justify-center text-white/5 italic font-black text-8xl uppercase">
-                            No Visual
-                        </div>
-                    )}
+                <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-white/[0.02] border border-white/[0.06] transition-all duration-700 group-hover:scale-[1.01] group-hover:shadow-[0_32px_80px_rgba(0,0,0,0.5)]">
+                    <SafeImage
+                        src={url}
+                        alt={`${marque} ${modele}`}
+                        className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
+                    />
                     
                     {/* Minimal Price Tag */}
                     <div className="absolute top-10 right-10">
@@ -56,13 +50,13 @@ const AnnonceCard = ({ annonce, index = 0 }) => {
             </Link>
 
             {/* Infos - Spacious & Minimal */}
-            <div className="px-4 space-y-10">
+            <div className="px-2 md:px-4 space-y-10 md:space-y-12">
                 <div className="space-y-4">
                     <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none group-hover:text-accent-gold transition-colors duration-500">
                         {marque} {modele}
                     </h3>
                     <div className="flex items-center gap-6">
-                        <span className="h-[2px] w-12 bg-accent-gold/20" />
+                        <span className="soft-divider w-12 opacity-60" />
                         <p className="text-white/20 text-xs font-black uppercase tracking-[0.4em]">SÉLECTION OFFICIELLE 2024</p>
                     </div>
                 </div>
