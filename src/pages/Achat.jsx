@@ -35,7 +35,7 @@ const Achat = () => {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent-gold/5 blur-[200px] pointer-events-none" />
 
                 <div className="main-container relative z-10">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 mb-16 md:mb-20">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mb-20 md:mb-28">
                         {[
                             {
                                 title: "Estimation en ligne",
@@ -62,23 +62,22 @@ const Achat = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8, delay: i * 0.2 }}
-                                className="relative group"
+                                className="relative group h-full"
                             >
-                                <div className="glass-panel p-10 md:p-12 lg:p-14 h-full border border-white/5 hover:border-accent-gold/20 transition-all duration-500 rounded-[2.5rem] flex flex-col items-center md:items-start text-center md:text-left gap-8 relative overflow-hidden">
-                                    {/* background numbering */}
-                                    <span className="absolute -top-4 -right-4 text-9xl font-black text-white/[0.02] pointer-events-none group-hover:text-accent-gold/[0.05] transition-colors duration-500">
+                                <div className="glass-panel p-8 md:p-10 lg:p-12 h-full min-h-[260px] md:min-h-[300px] border border-white/5 hover:border-accent-gold/20 transition-all duration-500 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center md:items-start text-center md:text-left gap-6 md:gap-8 relative">
+                                    <span className="absolute top-5 right-5 md:top-6 md:right-6 text-6xl md:text-7xl font-black text-white/[0.03] pointer-events-none group-hover:text-accent-gold/[0.06] transition-colors duration-500 leading-none select-none">
                                         {feature.step}
                                     </span>
 
-                                    <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold border border-accent-gold/20 group-hover:scale-110 group-hover:bg-accent-gold group-hover:text-black transition-all duration-500 shadow-[0_0_20px_rgba(212,175,55,0.1)]">
+                                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold border border-accent-gold/20 group-hover:scale-110 group-hover:bg-accent-gold group-hover:text-black transition-all duration-500 shadow-[0_0_20px_rgba(212,175,55,0.1)] shrink-0 relative z-10">
                                         {feature.icon}
                                     </div>
 
-                                    <div className="space-y-4">
-                                        <h3 className="text-xl lg:text-2xl font-black uppercase tracking-tight text-white/90">
+                                    <div className="space-y-3 md:space-y-4 flex-1 flex flex-col relative z-10">
+                                        <h3 className="text-lg md:text-xl lg:text-2xl font-black uppercase tracking-tight text-white/90">
                                             {feature.title}
                                         </h3>
-                                        <p className="text-white/30 leading-relaxed font-light text-base lg:text-lg">
+                                        <p className="text-white/40 leading-relaxed font-light text-sm md:text-base flex-1">
                                             {feature.desc}
                                         </p>
                                     </div>

@@ -166,7 +166,7 @@ const Home = () => {
                                 OÙ NOUS <br /><span className="text-accent-gold">TROUVER</span>
                             </h2>
                             <div className="space-y-8 w-full flex flex-col items-center md:items-stretch max-w-md md:max-w-none">
-                                <div className="card-light flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10 group">
+                                <div className="card-light-soft flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10 group">
                                     <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold shrink-0">
                                         <MapPin size={28} />
                                     </div>
@@ -175,7 +175,7 @@ const Home = () => {
                                         <p className="text-black/50 text-base md:text-lg font-light leading-relaxed">4 impasses du pont<br />31140 Launaguet, France</p>
                                     </div>
                                 </div>
-                                <div className="card-light flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10 group">
+                                <div className="card-light-soft flex flex-col md:flex-row items-center md:items-start gap-6 p-8 md:p-10 group">
                                     <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold shrink-0">
                                         <Phone size={28} />
                                     </div>
@@ -200,7 +200,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="w-full md:w-1/2">
-                            <div className="relative aspect-video md:aspect-square card-light overflow-hidden group p-1">
+                            <div className="relative aspect-video md:aspect-square card-light-soft overflow-hidden group p-1">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.67!2d1.46!3d43.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb1!2s4+Imp.+du+Pont%2C+31140+Launaguet!5e0!3m2!1sfr!2sfr!4v1"
                                     width="100%"
@@ -259,9 +259,10 @@ const Home = () => {
                             <p className="text-base md:text-lg text-white/45 font-light leading-[1.9]">
                                 Profitez aussi de notre expertise pour le rachat cash de votre véhicule. Nous rachetons tous types de modèles récents au meilleur prix du marché local. Faites confiance à CarXLab pour votre prochain achat dans le 31.
                             </p>
-                            <div className="pt-4">
-                                <Link to="/stock" className="inline-flex items-center gap-4 text-accent-gold text-xs font-black uppercase tracking-[0.3em] hover:gap-6 transition-all">
-                                    Parcourir le stock <ArrowRight size={16} />
+                            <div className="pt-6 md:pt-8">
+                                <Link to="/stock" className="gold-button group gap-4 px-10 md:px-12 py-5 inline-flex">
+                                    Parcourir le stock
+                                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>
                         </motion.div>

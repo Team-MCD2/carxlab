@@ -55,50 +55,48 @@ const Expertise = () => {
                 </div>
             </section>
 
-            <section className="section-padding content-grid-section">
+            <section className="section-padding">
                 <div className="main-container">
-                    <div className="flex flex-col items-center mb-16 md:mb-20">
-                        <div className="grid md:grid-cols-2 gap-12 w-full max-w-6xl">
-                            {steps.map((step, i) => (
-                                <MotionDiv
-                                    key={i}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.8, delay: i * 0.1 }}
-                                    className="glass-panel p-16 md:p-24 flex flex-col items-center text-center border-t border-t-accent-gold/20 hover:border-t-accent-gold transition-all duration-500 group rounded-[3rem]"
-                                >
-                                    <div className="text-accent-gold mb-10 group-hover:scale-110 transition-transform duration-500">{step.icon}</div>
-                                    <h3 className="text-3xl font-black mb-6 uppercase tracking-tight">{step.title}</h3>
-                                    <p className="text-white/30 text-lg leading-relaxed font-light">{step.desc}</p>
-                                </MotionDiv>
-                            ))}
-                        </div>
+                    <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 w-full max-w-6xl mx-auto mb-20 md:mb-32">
+                        {steps.map((step, i) => (
+                            <MotionDiv
+                                key={i}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: i * 0.1 }}
+                                className="glass-panel p-10 md:p-14 lg:p-16 flex flex-col items-center text-center border-t border-t-accent-gold/20 hover:border-t-accent-gold transition-all duration-500 group rounded-[2.5rem] md:rounded-[3rem]"
+                            >
+                                <div className="text-accent-gold mb-8 md:mb-10 group-hover:scale-110 transition-transform duration-500">{step.icon}</div>
+                                <h3 className="text-2xl md:text-3xl font-black mb-5 md:mb-6 uppercase tracking-tight">{step.title}</h3>
+                                <p className="text-white/30 text-base md:text-lg leading-relaxed font-light">{step.desc}</p>
+                            </MotionDiv>
+                        ))}
                     </div>
 
                     {/* Dynamic Display Panel */}
-                    <div className="relative min-h-[500px] md:h-[700px] border border-white/5 overflow-hidden group rounded-[3rem] bg-black/40">
-                        <div className="absolute inset-0 lab-grid opacity-10" />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center relative z-10">
-                            <div className="w-28 h-28 mb-12 rounded-full border border-accent-gold/20 flex items-center justify-center relative">
+                    <div className="relative min-h-[480px] md:min-h-[600px] border border-white/5 overflow-hidden group rounded-[2.5rem] md:rounded-[3rem] bg-black/40 flex items-center justify-center">
+                        <div className="absolute inset-0 lab-grid opacity-10 pointer-events-none" />
+                        <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.9)] pointer-events-none" />
+                        <div className="relative z-10 flex flex-col items-center justify-center text-center px-8 py-16 md:px-16 md:py-20 max-w-3xl mx-auto w-full">
+                            <div className="w-24 h-24 md:w-28 md:h-28 mb-10 md:mb-12 rounded-full border border-accent-gold/20 flex items-center justify-center relative shrink-0">
                                 <div className="absolute inset-x-0 h-[2px] bg-accent-gold/40 animate-[scan-line_4s_linear_infinite]" />
-                                <Search size={40} className="text-accent-gold" />
+                                <Search size={36} className="text-accent-gold md:w-10 md:h-10" />
                             </div>
-                            <h4 className="text-4xl font-black tracking-[0.4em] mb-10 uppercase">Transparence Totale</h4>
-                            <p className="max-w-3xl text-white/30 text-2xl font-light leading-relaxed">Chaque client reçoit un accès privé au "Dossier Médical" numérique de son véhicule, avec photos haute définition et rapports d'analyse complets.</p>
+                            <h4 className="text-2xl md:text-4xl font-black tracking-[0.2em] md:tracking-[0.35em] mb-8 md:mb-10 uppercase">Transparence Totale</h4>
+                            <p className="text-white/30 text-lg md:text-2xl font-light leading-relaxed">Chaque client reçoit un accès privé au « Dossier Médical » numérique de son véhicule, avec photos haute définition et rapports d'analyse complets.</p>
                         </div>
-                        <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.9)]" />
                     </div>
 
                 </div>
             </section>
 
             {/* SEO Expertise Content */}
-            <section className="section-padding bg-black border-t border-white/5 flex justify-center">
-                <div className="main-container flex flex-col items-center w-full">
-                    <div className="w-full max-w-4xl text-center">
-                        <h2 className="text-2xl md:text-3xl font-black uppercase tracking-widest mb-10">Expertise Automobile Certifiée en Haute-Garonne</h2>
-                        <div className="flex flex-col gap-6 text-sm md:text-base text-white/30 leading-relaxed font-light text-center">
+            <section className="section-padding bg-black border-t border-white/5">
+                <div className="main-container w-full">
+                    <div className="w-full max-w-4xl">
+                        <h2 className="text-2xl md:text-3xl font-black uppercase tracking-widest mb-10 md:mb-14 text-left">Expertise Automobile Certifiée en Haute-Garonne</h2>
+                        <div className="flex flex-col gap-8 md:gap-10 text-sm md:text-base text-white/30 leading-relaxed font-light text-left">
                             <p>
                                 Vous cherchez une <strong>expertise automobile à Toulouse</strong> pour sécuriser votre futur achat ? CarXLab, situé à <strong>Launaguet</strong>, offre un service de diagnostic haut de gamme. Nous intervenons sur tout le secteur (31), apportant une précision technique pour les véhicules de prestige et d'occasion.
                             </p>

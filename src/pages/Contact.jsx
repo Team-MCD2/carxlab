@@ -98,37 +98,33 @@ const Contact = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="w-full max-w-3xl mx-auto"
+                            className="w-full max-w-2xl mx-auto"
                         >
-                            <div className="glass-panel p-12 md:p-16 border-t-4 border-t-accent-gold bg-black/40 rounded-[3rem] shadow-2xl relative overflow-hidden group hover:border-accent-gold/30 transition-all duration-500">
+                            <div className="glass-panel px-8 py-12 md:px-14 md:py-16 border-t-4 border-t-accent-gold bg-black/40 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden group hover:border-accent-gold/30 transition-all duration-500 flex flex-col justify-center min-h-[320px] md:min-h-[360px]">
                                 <div className="absolute inset-0 lab-grid opacity-10 pointer-events-none" />
 
-                                <div className="relative z-10">
-                                    <div className="flex items-center gap-6 mb-12">
-                                        <div className="h-px flex-1 bg-white/10" />
-                                        <h4 className="text-2xl font-black uppercase tracking-[0.4em] text-white whitespace-nowrap">
-                                            Horaires d'Accès
-                                        </h4>
-                                        <div className="h-px flex-1 bg-white/10" />
-                                    </div>
+                                <div className="relative z-10 flex flex-col justify-center w-full">
+                                    <h4 className="text-xl md:text-2xl font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-white text-center mb-10 md:mb-12">
+                                        Horaires d'Accès
+                                    </h4>
 
-                                    <div className="space-y-8">
+                                    <div className="space-y-6 md:space-y-8 w-full">
                                         {[
                                             { day: 'Lundi - Vendredi', time: '09h - 19h' },
                                             { day: 'Samedi', time: '10h - 18h' },
                                             { day: 'Dimanche', time: 'Fermé', highlight: true }
                                         ].map((item, i) => (
-                                            <div key={i} className="flex justify-between items-center text-lg md:text-xl border-b border-white/5 pb-6 group/row">
-                                                <span className="text-white/60 font-bold group-hover/row:text-white transition-colors">{item.day}</span>
-                                                <span className={item.highlight ? "text-accent-gold font-black" : "text-white/30 font-light"}>
+                                            <div key={i} className="flex justify-between items-center gap-6 text-base md:text-lg border-b border-white/5 pb-5 md:pb-6 last:border-0 last:pb-0 group/row">
+                                                <span className="text-white/60 font-bold group-hover/row:text-white transition-colors text-left">{item.day}</span>
+                                                <span className={`shrink-0 text-right ${item.highlight ? "text-accent-gold font-black" : "text-white/40 font-light"}`}>
                                                     {item.time}
                                                 </span>
                                             </div>
                                         ))}
                                     </div>
 
-                                    <div className="mt-12 text-center">
-                                        <p className="text-[10px] uppercase tracking-[0.5em] font-black text-white/20">
+                                    <div className="mt-10 md:mt-12 pt-6 border-t border-white/5 text-center">
+                                        <p className="text-[10px] uppercase tracking-[0.35em] md:tracking-[0.45em] font-black text-white/20">
                                             Protocole Lab CarXLab // Verified Status
                                         </p>
                                     </div>

@@ -9,12 +9,12 @@ const ReviewCard = ({ name, date, text, rating = 5, index }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-40px' }}
         transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-        className="card-on-dark p-10 md:p-12 flex flex-col h-full min-h-[340px]"
+        className="card-on-dark overflow-hidden p-10 md:p-12 flex flex-col h-full min-h-[340px]"
     >
-        <div className="flex items-center justify-between gap-4 mb-10 pb-8 border-b-2 border-black">
-            <div className="flex gap-1">
+        <div className="flex items-center justify-between gap-4 mb-10 pb-8 border-b border-black/10">
+            <div className="flex gap-0.5 shrink-0" aria-hidden="true">
                 {[...Array(rating)].map((_, i) => (
-                    <Star key={i} size={18} className="fill-accent-gold text-accent-gold" />
+                    <Star key={i} size={16} className="fill-accent-gold text-accent-gold shrink-0" strokeWidth={0} />
                 ))}
             </div>
             <span className="text-[10px] font-black uppercase tracking-[0.25em] text-black/40">

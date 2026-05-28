@@ -94,13 +94,14 @@ const LabProtocol = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.35, duration: 0.6 }}
-                className="flex justify-center mt-16 md:mt-24"
+                className="flex justify-center mt-20 md:mt-32 pt-4"
             >
                 <Link
                     to="/expertise"
-                    className="inline-flex items-center gap-4 px-8 py-4 bg-black text-white text-xs font-black uppercase tracking-[0.25em] rounded-full hover:bg-accent-gold hover:text-black transition-all duration-300"
+                    className="gold-button group gap-4 px-12 md:px-14 py-5 text-xs md:text-sm"
                 >
-                    Découvrir notre expertise <ArrowRight size={16} />
+                    Découvrir notre expertise
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
             </motion.div>
         </div>
