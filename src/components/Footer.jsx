@@ -41,7 +41,7 @@ const Footer = () => {
         <footer className="relative mt-20 md:mt-32 overflow-hidden">
             {/* Transition douce depuis la section précédente */}
             <div
-                className="h-20 md:h-32 w-full bg-gradient-to-b from-[#ebebeb] via-[#4a4a4a] to-[var(--bg-card)] pointer-events-none"
+                className="h-12 md:h-16 w-full bg-black pointer-events-none"
                 aria-hidden
             />
 
@@ -118,14 +118,14 @@ const Footer = () => {
                                     const Icon = card.icon;
                                     const inner = (
                                         <>
-                                            <div className="w-14 h-14 rounded-2xl bg-accent-gold/10 border border-accent-gold/15 flex items-center justify-center text-accent-gold shrink-0 group-hover:bg-accent-gold group-hover:text-black transition-all duration-400">
+                                            <div className="w-14 h-14 rounded-xl bg-black flex items-center justify-center text-accent-gold shrink-0">
                                                 <Icon size={24} />
                                             </div>
                                             <div className="flex-1 min-w-0 text-left">
-                                                <span className="block text-[10px] uppercase tracking-[0.3em] text-accent-gold/80 font-black mb-2">
+                                                <span className="block text-[10px] uppercase tracking-[0.3em] text-accent-gold font-black mb-2">
                                                     {card.label}
                                                 </span>
-                                                <span className="text-white/65 text-base md:text-[17px] leading-relaxed font-light group-hover:text-white transition-colors">
+                                                <span className="text-black/65 text-base md:text-[17px] leading-relaxed font-light">
                                                     {card.content}
                                                 </span>
                                             </div>
@@ -145,12 +145,12 @@ const Footer = () => {
                                                     href={card.href}
                                                     target={card.external ? '_blank' : undefined}
                                                     rel={card.external ? 'noopener noreferrer' : undefined}
-                                                    className="group flex items-center gap-6 md:gap-8 w-full p-8 md:p-10 rounded-2xl bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.07] hover:border-accent-gold/20 transition-all duration-300"
+                                                    className="group surface-white flex items-center gap-6 md:gap-8 w-full p-8 md:p-10 hover:shadow-[0_12px_40px_rgba(255,255,255,0.08)] transition-all duration-300"
                                                 >
                                                     {inner}
                                                 </a>
                                             ) : (
-                                                <div className="group flex items-center gap-6 md:gap-8 w-full p-8 md:p-10 rounded-2xl bg-white/[0.04] border border-white/[0.08]">
+                                                <div className="group surface-white flex items-center gap-6 md:gap-8 w-full p-8 md:p-10">
                                                     {inner}
                                                 </div>
                                             )}
